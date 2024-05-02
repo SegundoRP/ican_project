@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="sm:p-5 sm:px-10 sm:grid grid-cols-2 md:text-start items-center">
         <div className="md:flex md:justify-center">
           <Image
-            src="/logo_footer.jpg"
+            src="/logo_footer.webp"
             alt=""
             width={300}
             height={300}

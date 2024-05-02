@@ -22,17 +22,17 @@ export default function Experiencia() {
       </div>
       <div className="grid gap-5 md:grid md:grid-cols-3 lg:grid lg:grid-cols-3 text-gray-100 items-center sm:gap-4 lg:gap-7">
         <div>
-          <Image src="/work-experience.jpg" alt="" width={1600} height={1600} />
+          <Image src="/work-experience.webp" alt="" width={1600} height={1600} />
           <h5 className="sm:p-5 font-semibold">Imagen 0001</h5>
         </div>
 
         <div>
-          <Image src="/work-experience.jpg" alt="" width={1600} height={1600} />
+          <Image src="/work-experience.webp" alt="" width={1600} height={1600} />
           <h5 className="sm:p-5 font-semibold">Imagen 0001</h5>
         </div>
 
         <div>
-          <Image src="/work-experience.jpg" alt="" width={1600} height={1600} />
+          <Image src="/work-experience.webp" alt="" width={1600} height={1600} />
           <h5 className="sm:p-5 font-semibold">Imagen 0001</h5>
         </div>
       </div>

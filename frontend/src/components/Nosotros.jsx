@@ -8,7 +8,7 @@ export default function Nosotros() {
     >
       <div>
         <Image
-          src="/team.jpeg"
+          src="/team.webp"
           alt=""
           width={1600}
           height={1600}

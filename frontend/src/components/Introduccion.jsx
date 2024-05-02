@@ -44,7 +44,7 @@ export default function Intro() {
 
       <div className="">
         <Image
-          src="/delivery001.jpg"
+          src="/delivery001.webp"
           alt=""
           width={3600}
           height={3600}
