@@ -1,17 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function navbar() {
   return (
     <header className="grid bg-gray-900 px-1 py-4 sm:p-10 z-1">
-      <div className="flex justify-center sm:justify-between sm:gap-3 items-center text-center">
-        <Image
-          src="/next.svg"
-          alt=""
-          width={200}
-          height={200}
-          className="mr-8 w-1/4 sm:w-80"
-        />
+      <div className="flex justify-around sm:justify-between sm:gap-3 items-center text-center">
+        <div>
+          <h2 className="text-yellow-300 text-4xl font-bold">Logo</h2>
+        </div>
         <div className="">
           <button
             role="link"
