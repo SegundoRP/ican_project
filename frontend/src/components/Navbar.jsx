@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function navbar() {
   return (
-    <header className="grid bg-gray-900 px-1 py-4 sm:p-10 z-1">
+    <header className="grid bg-gray-900 px-1 py-4 sm:p-10 sticky top-0">
       <div className="flex justify-around sm:justify-between sm:gap-3 items-center text-center">
         <div>
           <h2 className="text-yellow-300 text-4xl font-bold">Logo</h2>

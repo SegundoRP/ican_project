@@ -19,7 +19,7 @@ export default function Intro() {
           dignissimos doloremque ullam illo distinctio, natus voluptate rerum.
         </p>
         <div>
-          <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-yellow-300 px-6 font-bold text-gray-900 shadow-2xl shadow-gray-900/50">
+          <button class="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-yellow-300 px-6 font-bold text-gray-900 shadow-2xl shadow-gray-900/50">
             <div class="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
               <svg
                 width="15"
