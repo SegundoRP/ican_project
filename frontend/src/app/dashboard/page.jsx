@@ -1,3 +1,4 @@
+import Cards from "@/components/dashboard/cards/Cards";
 import { Avatar, Datepicker } from "flowbite-react";
 
 
@@ -20,6 +21,7 @@ export default function pageDashboard() {
           </div>
         </div>
       </section>
+      <Cards/>
     </main>
   )
 }
