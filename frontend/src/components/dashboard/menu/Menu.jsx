@@ -12,7 +12,7 @@ import {
 
 export default function SidebarHome() {
   return (
-    <div className="py-5 px-2">
+    <div className="fixed top-0 left-0 right-0 z-50 justify-between items-center">
       <Navbar fluid={true} rounded={true}>
         <Navbar.Brand href="">
           <span className="text-blue-700 text-xl font-bold ">
@@ -52,7 +52,7 @@ export default function SidebarHome() {
         </Dropdown>
       </Navbar>
 
-      <div className="flex justify-center sm:flex sm:justify-start sm:ml-16">
+      <div className="flex justify-center bg-white sm:flex sm:justify-start sm:pl-16 pb-4">
         <Breadcrumb aria-label="Default breadcrumb example">
           <Breadcrumb.Item href="/dashboard" icon={HiOutlineHome}>
             Home
