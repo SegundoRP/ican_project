@@ -10,7 +10,7 @@ import {
   HiLogout,
 } from "react-icons/hi";
 
-export default function SidebarHome() {
+export default function MenuDashboard() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 justify-between items-center">
       <Navbar fluid={true} rounded={true}>
