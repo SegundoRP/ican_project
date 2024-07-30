@@ -3,6 +3,7 @@
 import DataTable from "react-data-table-component";
 import { FloatingLabel } from "flowbite-react";
 import { useState } from "react";
+import NuevaOrden from "../modals/NuevaOrden";
 
 const customStyles = {
   rows: {
@@ -255,6 +256,7 @@ export default function DataPrincipalOrdenes() {
           label="Buscar Pedido"
           onChange={handleChange}
         />
+        <NuevaOrden/>
       </div>
 
       <DataTable
