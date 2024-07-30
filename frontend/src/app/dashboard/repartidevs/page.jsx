@@ -8,7 +8,7 @@ export default function pageRepartidevs() {
     <main className="mt-28 p-4 sm:p-6 bg-slate-300">
       <section className="bg-white rounded-xl mb-4 p-5">
         <header className="flex justify-center sm:justify-start text-3xl font-bold text-gray-900 border-b-4 border-yellow-200 mb-6 sm:inline-block">
-          Ranking
+          Ranking Repartidevs
         </header>
         <DataRankingRepartidev/>
       </section>
