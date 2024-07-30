@@ -84,7 +84,7 @@ export default function DataPrincipalRepartidevs() {
           Repartidevs
         </h2>
         <a
-          href="/repartidevs"
+          href="/dashboard/repartidevs"
           className="text-sm font-medium text-blue-600 hover:underline"
         >
           Ver Todos
