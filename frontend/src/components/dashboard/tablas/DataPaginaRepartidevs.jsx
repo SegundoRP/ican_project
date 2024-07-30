@@ -6,6 +6,29 @@ import { FloatingLabel } from "flowbite-react";
 import { HiOutlinePhoneOutgoing } from "react-icons/hi";
 import NuevoRepartidev from "../modals/NuevoRepartidev";
 
+const customStyles = {
+    rows: {
+      style: {
+        minHeight: "52px",
+      },
+    },
+    headCells: {
+      style: {
+        color: "#000",
+        fontSize: "14px",
+        fontWeight: 600,
+        backgroundColor: "#EEEE",
+        justifyContent: "center",
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: "0px",
+        paddingRight: "18px",
+        justifyContent: "center",
+      },
+    },
+  };
 
 const columns = [
     {
@@ -264,7 +287,7 @@ export default function DataPaginaRepartidevs() {
         data={register}
         pagination
         // paginationPerPage = {9}
-        //customStyles={customStyles}
+        customStyles={customStyles}
         fixedHeader
       />
     </section>
