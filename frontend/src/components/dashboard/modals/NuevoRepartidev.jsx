@@ -6,6 +6,7 @@ import {
 } from "flowbite-react";
 import { useState } from "react";
 import { HiOutlineIdentification } from "react-icons/hi";
+import FormNuevoRepartidev from "../Forms/FormNuevoRepartidev";
 
 export default function NuevoRepartidev() {
   const [openModal, setOpenModal] = useState(false);
@@ -32,7 +33,7 @@ export default function NuevoRepartidev() {
             Quiero ser Repartidev
           </h3>
           <div>
-            
+            <FormNuevoRepartidev/>
           </div>
         </div>
       </Modal.Body>
