@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 import { useState } from "react";
 import { FloatingLabel } from "flowbite-react";
 import { HiOutlinePhoneOutgoing } from "react-icons/hi";
+import NuevoRepartidev from "../modals/NuevoRepartidev";
 
 
 const columns = [
@@ -255,6 +256,7 @@ export default function DataPaginaRepartidevs() {
           label="Buscar Repartidev"
           onChange={handleChange}
         />
+        <NuevoRepartidev/>
       </article>
 
       <DataTable

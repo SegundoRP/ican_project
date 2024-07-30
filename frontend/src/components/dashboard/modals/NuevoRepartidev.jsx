@@ -5,6 +5,7 @@ import {
   Modal,
 } from "flowbite-react";
 import { useState } from "react";
+import { HiOutlineIdentification } from "react-icons/hi";
 
 export default function NuevoRepartidev() {
   const [openModal, setOpenModal] = useState(false);
@@ -16,7 +17,7 @@ export default function NuevoRepartidev() {
       className="font-semibold p-1"
       onClick={() => setOpenModal(true)}
     >
-      + Ser Repartidev
+      <p className="flex items-center justify-between gap-1"><HiOutlineIdentification className="size-5"/> Nuevo Repartidev</p>
     </Button>
     <Modal
       show={openModal}
