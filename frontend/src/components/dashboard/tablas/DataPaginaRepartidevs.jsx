@@ -2,7 +2,8 @@
 
 import DataTable from "react-data-table-component";
 import { useState } from "react";
-import { HiPhoneOutgoing } from "react-icons/hi";
+import { FloatingLabel } from "flowbite-react";
+import { HiOutlinePhoneOutgoing } from "react-icons/hi";
 
 
 const columns = [
@@ -48,7 +49,7 @@ const columns = [
           href="#"
           className="bg-green-100 text-green-500 p-2 rounded-lg flex gap-2 items-center"
         >
-          {<HiPhoneOutgoing />}
+          {<HiOutlinePhoneOutgoing/>}
           {row.contacto}
         </a>
       ),

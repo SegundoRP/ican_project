@@ -4,7 +4,7 @@ import React from "react";
 
 export default function pageOrdenes() {
   return (
-    <main className="mt-28 p-4 sm:p-6 bg-gray-200">
+    <main className="mt-28 p-4 sm:p-6 bg-slate-300">
       <section className="flex flex-col gap-5 lg:grid xl:grid-cols-7">
         <article className="bg-white p-5 rounded-xl lg:grid xl:col-span-6">
           <div>
