@@ -4,7 +4,7 @@ export default function FormNuevoRepartidev() {
     const { register, handleSubmit , formState:{errors} } = useForm();
 
     const onSubmit = (data) => {
-      console.log(data);
+      return data
     };
 
   return (

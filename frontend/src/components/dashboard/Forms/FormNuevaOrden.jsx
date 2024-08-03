@@ -6,7 +6,7 @@ export default function FormNuevaOrden() {
   const { register, handleSubmit , formState:{errors} } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    return data
   };
 
   return (
