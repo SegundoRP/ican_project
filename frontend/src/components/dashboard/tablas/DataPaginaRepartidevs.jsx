@@ -286,7 +286,6 @@ export default function DataPaginaRepartidevs() {
         columns={columns}
         data={register}
         pagination
-        // paginationPerPage = {9}
         customStyles={customStyles}
         fixedHeader
       />
