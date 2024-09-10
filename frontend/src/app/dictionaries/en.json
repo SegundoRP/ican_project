@@ -1,0 +1,32 @@
+{
+    "LandingPage": {
+      "Navbar": {
+          "Botones":{
+              "IniciarSesion":"Login",
+              "Registrate":"Register"
+          },
+          "Menu":{
+              "Inicio":"Home",
+              "Nosotros":"Team",
+              "Servicios":"Services",
+              "Contacto":"We Help You"
+          }
+      },
+      "Introduccion": {},
+      "Servicios": {},
+      "Nosotros": {},
+      "Experiencia": {},
+      "Testimonios": {},
+      "Footer": {}
+    },
+  
+    "DashboardPage": {
+      "Ordenes": {
+        "Home": "Ordenes"
+      },
+      "Repartidevs": {
+        "Home": "Repartidevs"
+      }
+    }
+  }
+  
