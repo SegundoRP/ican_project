@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function navbar() {
+export default function Navbar({dict}) {
   return (
     <header className="grid bg-gray-900 px-1 py-4 sm:p-10 sticky top-0">
       <div className="flex justify-around sm:justify-between sm:gap-3 items-center text-center">
@@ -17,7 +17,7 @@ export default function navbar() {
               href="/login"
               className="relative border-b-2 border-gray-100 text-md sm:text-lg"
             >
-              Iniciar Sesión
+              {dict.LandingPage.Navbar.Botones.IniciarSesion}
             </Link>
           </button>
           <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200">
@@ -26,7 +26,7 @@ export default function navbar() {
               href="/login"
               className="relative border-b-2 border-gray-100 text-md text-center sm:text-lg"
             >
-              Registrate
+              {dict.LandingPage.Navbar.Botones.Registrate}
             </Link>
           </button>
         </div>
@@ -37,25 +37,25 @@ export default function navbar() {
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="">Home</Link>
+          <Link href="">{dict.LandingPage.Navbar.Menu.Inicio}</Link>
         </button>
         <button
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="#nosotros">Nosotros</Link>
+          <Link href="#nosotros">{dict.LandingPage.Navbar.Menu.Nosotros}</Link>
         </button>
         <button
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="#servicios">Servicios</Link>
+          <Link href="#servicios">{dict.LandingPage.Navbar.Menu.Servicios}</Link>
         </button>
         <button
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="#experiencia">Te Ayudamos</Link>
+          <Link href="#experiencia">{dict.LandingPage.Navbar.Menu.Contacto}</Link>
         </button>
       </nav>
     </header>

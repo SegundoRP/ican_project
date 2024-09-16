@@ -7,11 +7,14 @@ import Testimonios from "@/components/Testimonios";
 import Footer from "@/components/Footer";
 
 
+export default async function Home({params:{lang}}) {
 
-export default function Home() {
+  const dictionary = await import (`@/app/dictionaries/${lang}.json`)
+  .then((m) => m.default)
+
   return (
     <main className="">
-      <Navbar /> 
+      <Navbar dict={dictionary}/> 
       <Introduccion />
       <Servicios />
       <Nosotros />
