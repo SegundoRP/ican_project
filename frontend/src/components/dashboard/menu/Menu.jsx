@@ -36,13 +36,13 @@ export default function MenuDashboard() {
               segundorp@gmail.com
             </span>
           </Dropdown.Header>
-          <Dropdown.Item icon={HiOutlineChartBar}>
+          <Dropdown.Item icon={HiOutlineChartBar} href="/dashboard">
             <a href="/dashboard">Dashboard</a>
           </Dropdown.Item>
-          <Dropdown.Item icon={HiOutlineShoppingCart}>
+          <Dropdown.Item icon={HiOutlineShoppingCart} href="/dashboard/ordenes">
             <a href="/dashboard/ordenes">Ordenes</a>
           </Dropdown.Item>
-          <Dropdown.Item icon={HiOutlineUserGroup}>
+          <Dropdown.Item icon={HiOutlineUserGroup} href="/dashboard/repartidevs">
             <a href="/dashboard/repartidevs">Repartidevs</a>
           </Dropdown.Item>
           <Dropdown.Divider />
