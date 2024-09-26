@@ -1,22 +1,22 @@
 {
     "LandingPage": {
       "Navbar": {
-          "Botones":{
-              "IniciarSesion":"Iniciar Sesion",
-              "Registrate":"Registrate"
+          "Buttons":{
+              "Login":"Iniciar Sesion",
+              "Register":"Registrate"
           },
           "Menu":{
-              "Inicio":"Inicio",
-              "Nosotros":"Nosotros",
-              "Servicios":"Servicios",
-              "Contacto":"Te Ayudamos"
+              "Home":"Inicio",
+              "Team":"Nosotros",
+              "Services":"Servicios",
+              "Contact":"Te Ayudamos"
           }
       },
-      "Introduccion": {},
-      "Servicios": {},
-      "Nosotros": {},
-      "Experiencia": {},
-      "Testimonios": {},
+      "Introduction": {},
+      "Services": {},
+      "Team": {},
+      "Experience": {},
+      "Testimonials": {},
       "Footer": {}
     },
   
