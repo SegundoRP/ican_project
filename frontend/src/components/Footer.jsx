@@ -27,7 +27,7 @@ export default function Footer() {
               placeholder="Ingresa tu email"
               className="text-center rounded-lg text-gray-900"
             />
-            <button class="w-full sm:w-auto rounded-md bg-yellow-300 px-5 py-2.5 text-gray-900 font-bold transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110">
+            <button className="w-full sm:w-auto rounded-md bg-yellow-300 px-5 py-2.5 text-gray-900 font-bold transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110">
               Enviar
             </button>
           </div>

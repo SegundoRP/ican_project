@@ -8,10 +8,15 @@ import Footer from "@/components/Footer";
 
 
 
-export default function Home() {
+export default async function Home({params}) {
+
+  const {lang} = params
+  const dictionary = await import (`@/app/dictionaries/${lang}.json`)
+  .then((m) => m.default)
+  
   return (
     <main className="">
-      <Navbar /> 
+      <Navbar dict={dictionary}/> 
       <Introduccion />
       <Servicios />
       <Nosotros />
