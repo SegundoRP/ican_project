@@ -7,7 +7,7 @@ export default function Bienvenido({dictDashboard}) {
         <div className="grid place-content-center sm:flex sm:items-center sm:gap-4">
           <Avatar img="https://unavatar.io/segundorp" rounded size="lg" />
           <div className="text-center space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-bold">{dictDashboard.Home.Welcome.Greeting} <span className="text-blue-600 font-extrabold">{dictDashboard.Home.Welcome.User}</span></h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">{dictDashboard.Welcome.Greeting} <span className="text-blue-600 font-extrabold">{dictDashboard.Welcome.User}</span></h2>
             <Datepicker
               className="flex justify-center"
               language="es-ES"

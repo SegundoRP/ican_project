@@ -92,6 +92,20 @@
   "DashboardPage": {
 
     "Home":{
+
+     "Menu":{
+      "Dropdown":{
+        "Dashboard":"Panel de Control",
+        "Orders":"Ordenes",
+        "Repartidevs":"Repartidevs",
+        "Logout":"Cerrar Sesión"
+      },
+      "Breadcrumb":{
+        "Home":"Inicio",
+        "Dashboard":"Panel de Control",
+        "User":"Segundo Rebaza"
+      }
+     }, 
      "Welcome":{
       "Greeting":"Bienvenido",
       "User":"Segundo"

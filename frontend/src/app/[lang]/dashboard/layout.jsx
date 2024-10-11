@@ -1,9 +1,15 @@
 import Menu from "@/components/dashboard/menu/Menu"
 
-export default function Layout({ children }) {
+export default async function Layout({ children,params }) {
+
+  const {lang} = params
+  const dictionary = await import (`@/app/dictionaries/${lang}.json`)
+  .then((m) => m.default)
+  const dictionaryDashboard = dictionary.DashboardPage.Home
+
     return (
         <main className="">
-            <Menu/>
+            <Menu dictDashboard={dictionaryDashboard}/>
               {children}
         </main>
     );
