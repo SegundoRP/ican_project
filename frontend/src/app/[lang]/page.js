@@ -19,7 +19,7 @@ export default async function Home({params}) {
     <main className="">
       <Navbar dict={dictionaryLanding}/> 
       <Introduccion dict={dictionaryLanding}/>
-      <Servicios />
+      <Servicios dict={dictionaryLanding}/>
       <Nosotros />
       <Experiencia />
       <Testimonios />

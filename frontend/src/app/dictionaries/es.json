@@ -12,7 +12,7 @@
         "Contact": "Te Ayudamos"
       }
     },
-    
+
     "Introduction": {
       "Titles": {
         "Title": "Te Ayudamos",
@@ -23,7 +23,30 @@
       "Button": "Empezar"
     },
 
-    "Services": {},
+    "Services": {
+      "Titles": {
+        "Title": "Que hacemos",
+        "SubTitle": "para ayudarte"
+      },
+      "ServicesContent": {
+        "Service01": {
+          "Title": "Servicio 001",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service02": {
+          "Title": "Servicio 002",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service03": {
+          "Title": "Servicio 003",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service04": {
+          "Title": "Servicio 004",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        }
+      }
+    },
     "Team": {},
     "Experience": {},
     "Testimonials": {},

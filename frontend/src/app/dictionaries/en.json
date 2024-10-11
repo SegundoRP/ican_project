@@ -23,7 +23,30 @@
       "Button": "Let's go"
     },
 
-    "Services": {},
+    "Services": {
+      "Titles": {
+        "Title": "What we do",
+        "SubTitle": "to help you"
+      },
+      "ServicesContent": {
+        "Service01": {
+          "Title": "Service 001",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service02": {
+          "Title": "Service 002",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service03": {
+          "Title": "Service 003",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service04": {
+          "Title": "Service 004",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        }
+      }
+    },
     "Team": {},
     "Experience": {},
     "Testimonials": {},
