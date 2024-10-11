@@ -88,6 +88,14 @@
   },
 
   "DashboardPage": {
+
+    "Home":{
+      "Welcome":{
+       "Greeting":"Welcome",
+       "User":"Second"
+      } 
+     },
+
     "Ordenes": {
       "Home": "Ordenes"
     },
