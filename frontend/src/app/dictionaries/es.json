@@ -70,7 +70,16 @@
       }
     },
 
-    "Testimonials": {},
+    "Testimonials": {
+      "Titles":{
+        "Title":"Nuestros Testimonios",
+        "SubTitle":"que dicen de nosotros"
+      },
+      "Testimony01":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus.",
+      "Testimony02":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus.",
+      "Testimony03":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
+    },
+
     "Footer": {}
   },
 

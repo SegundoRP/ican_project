@@ -69,7 +69,15 @@
         "Experience3":"Experiencie-03"
       }
     },
-    "Testimonials": {},
+    "Testimonials": {
+      "Titles":{
+        "Title":"Our Testimonies",
+        "SubTitle":"What they say about us"
+      },
+      "Testimony01":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus.",
+      "Testimony02":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus.",
+      "Testimony03":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
+    },
     "Footer": {}
   },
 
