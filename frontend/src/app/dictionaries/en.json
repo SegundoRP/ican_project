@@ -47,7 +47,16 @@
         }
       }
     },
-    "Team": {},
+
+    "Team": {
+      "Titles": {
+        "Title": "About Us",
+        "SubTitle": "for you"
+      },
+      "Content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem possimus molestiae dolor, non eius repellendus voluptatibus tenetur dignissimos doloremque ullam illo distinctio, natus voluptate rerum. Commodi blanditiis vela.",
+      "Button": "Learn more"
+    },
+
     "Experience": {},
     "Testimonials": {},
     "Footer": {}
