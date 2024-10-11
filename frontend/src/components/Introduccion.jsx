@@ -1,22 +1,20 @@
 import Image from "next/image";
 
-export default function Intro() {
+export default function Intro({dict}) {
   return (
     <section className="grid items-center text-center p-5 py-10 gap-5 lg:grid-cols-2">
       <div className="grid gap-10">
         <div>
-          <h1 className="text-5xl sm:text-6xl text-gray-800 font-extrabold md:text-7xl 2xl:text-9xl bg-yellow-300 p-3 inline-block">Te ayudamos</h1>
+          <h1 className="text-5xl sm:text-6xl text-gray-800 font-extrabold md:text-7xl 2xl:text-9xl bg-yellow-300 p-3 inline-block">{dict.Introduction.Titles.Title}</h1>
           <h2 className="text-4xl py-5 font-semibold text-gray-700 md:text-5xl 2xl:text-7xl">
-            a tener en tus manos
+          {dict.Introduction.Titles.SubTitle1}
           </h2>
           <h3 className="text-4xl border-b-8 border-yellow-300 inline-block text-gray-500 md:text-5xl 2xl:text-7xl">
-            tus pedidos
+          {dict.Introduction.Titles.SubTitle2}
           </h3>
         </div>
         <p className="text-pretty md:text-lg xl:text-xl tracking-wide text-gray-500 lg:mx-8 2xl:mx-16">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem
-          possimus molestiae dolor, non eius repellendus voluptatibus tenetur
-          dignissimos doloremque ullam illo distinctio, natus voluptate rerum.
+        {dict.Introduction.Content}
         </p>
         <div>
           <button className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-yellow-300 px-6 font-bold text-gray-900 shadow-2xl shadow-gray-900/50">
@@ -37,7 +35,7 @@ export default function Intro() {
                 ></path>
               </svg>
             </div>
-            <span>Empezar</span>
+            <span>{dict.Introduction.Button}</span>
           </button>
         </div>
       </div>

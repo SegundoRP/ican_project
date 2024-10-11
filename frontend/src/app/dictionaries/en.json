@@ -1,31 +1,41 @@
 {
-    "LandingPage": {
-      "Navbar": {
-          "Buttons":{
-              "Login":"Login",
-              "Register":"Register"
-          },
-          "Menu":{
-              "Home":"Home",
-              "Team":"Team",
-              "Services":"Services",
-              "Contact":"We Help You"
-          }
+  "LandingPage": {
+    "Navbar": {
+      "Buttons": {
+        "Login": "Login",
+        "Register": "Register"
       },
-      "Introduction": {},
-      "Services": {},
-      "Team": {},
-      "Experience": {},
-      "Testimonials": {},
-      "Footer": {}
+      "Menu": {
+        "Home": "Home",
+        "Team": "Team",
+        "Services": "Services",
+        "Contact": "We Help You"
+      }
     },
 
-    "DashboardPage": {
-      "Ordenes": {
-        "Home": "Ordenes"
+    "Introduction": {
+      "Titles": {
+        "Title": "We help you",
+        "SubTitle1": "to have your orders",
+        "SubTitle2": "in your hands"
       },
-      "Repartidevs": {
-        "Home": "Repartidevs"
-      }
+      "Content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem possimus molestiae dolor, non eius repellendus voluptatibus tenetur dignissimos doloremque ullam illo distinctio, natus voluptate rerum.",
+      "Button": "Let's go"
+    },
+
+    "Services": {},
+    "Team": {},
+    "Experience": {},
+    "Testimonials": {},
+    "Footer": {}
+  },
+
+  "DashboardPage": {
+    "Ordenes": {
+      "Home": "Ordenes"
+    },
+    "Repartidevs": {
+      "Home": "Repartidevs"
     }
   }
+}

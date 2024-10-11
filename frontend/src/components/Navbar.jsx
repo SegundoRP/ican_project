@@ -17,7 +17,7 @@ export default function navbar({dict}) {
               href="/login"
               className="relative border-b-2 border-gray-100 text-md sm:text-lg"
             >
-              {dict.LandingPage.Navbar.Buttons.Login}
+              {dict.Navbar.Buttons.Login}
             </Link>
           </button>
           <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200">
@@ -26,7 +26,7 @@ export default function navbar({dict}) {
               href="/login"
               className="relative border-b-2 border-gray-100 text-md text-center sm:text-lg"
             >
-              {dict.LandingPage.Navbar.Buttons.Register}
+              {dict.Navbar.Buttons.Register}
             </Link>
           </button>
         </div>
@@ -37,25 +37,25 @@ export default function navbar({dict}) {
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="">{dict.LandingPage.Navbar.Menu.Home}</Link>
+          <Link href="">{dict.Navbar.Menu.Home}</Link>
         </button>
         <button
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="#nosotros">{dict.LandingPage.Navbar.Menu.Team}</Link>
+          <Link href="#nosotros">{dict.Navbar.Menu.Team}</Link>
         </button>
         <button
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="#servicios">{dict.LandingPage.Navbar.Menu.Services}</Link>
+          <Link href="#servicios">{dict.Navbar.Menu.Services}</Link>
         </button>
         <button
           role="link"
           className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[4px] after:w-full after:origin-bottom after:scale-x-0 after:bg-yellow-300 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
         >
-          <Link href="#experiencia">{dict.LandingPage.Navbar.Menu.Contact}</Link>
+          <Link href="#experiencia">{dict.Navbar.Menu.Contact}</Link>
         </button>
       </nav>
     </header>

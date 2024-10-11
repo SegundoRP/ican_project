@@ -1,31 +1,41 @@
 {
-    "LandingPage": {
-      "Navbar": {
-          "Buttons":{
-              "Login":"Iniciar Sesion",
-              "Register":"Registrate"
-          },
-          "Menu":{
-              "Home":"Inicio",
-              "Team":"Nosotros",
-              "Services":"Servicios",
-              "Contact":"Te Ayudamos"
-          }
+  "LandingPage": {
+    "Navbar": {
+      "Buttons": {
+        "Login": "Iniciar Sesion",
+        "Register": "Registrate"
       },
-      "Introduction": {},
-      "Services": {},
-      "Team": {},
-      "Experience": {},
-      "Testimonials": {},
-      "Footer": {}
-    },
-  
-    "DashboardPage": {
-      "Ordenes": {
-        "Home": "Ordenes"
-      },
-      "Repartidevs": {
-        "Home": "Repartidevs"
+      "Menu": {
+        "Home": "Inicio",
+        "Team": "Nosotros",
+        "Services": "Servicios",
+        "Contact": "Te Ayudamos"
       }
+    },
+    
+    "Introduction": {
+      "Titles": {
+        "Title": "Te Ayudamos",
+        "SubTitle1": "a tener en tus manos",
+        "SubTitle2": "tus pedidos"
+      },
+      "Content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem possimus molestiae dolor, non eius repellendus voluptatibus tenetur dignissimos doloremque ullam illo distinctio, natus voluptate rerum.",
+      "Button": "Empezar"
+    },
+
+    "Services": {},
+    "Team": {},
+    "Experience": {},
+    "Testimonials": {},
+    "Footer": {}
+  },
+
+  "DashboardPage": {
+    "Ordenes": {
+      "Home": "Ordenes"
+    },
+    "Repartidevs": {
+      "Home": "Repartidevs"
     }
   }
+}
