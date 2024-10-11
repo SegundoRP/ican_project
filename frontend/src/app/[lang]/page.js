@@ -21,7 +21,7 @@ export default async function Home({params}) {
       <Introduccion dict={dictionaryLanding}/>
       <Servicios dict={dictionaryLanding}/>
       <Nosotros dict={dictionaryLanding}/>
-      <Experiencia />
+      <Experiencia dict={dictionaryLanding}/>
       <Testimonios />
       <Footer />
     </main>

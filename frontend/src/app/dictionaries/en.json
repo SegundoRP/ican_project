@@ -57,7 +57,18 @@
       "Button": "Learn more"
     },
 
-    "Experience": {},
+    "Experience": {
+      "Titles": {
+        "Title": "Our recent",
+        "SubTitle": "works"
+      },
+      "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eos quam repudiandae, esse accusamus explicabo! Dolore, architecto. Exercitationem vero beatae consectetur, dolore necessitatibus cum iusto quis veritatis vel unde neque.",
+      "Experiences":{
+        "Experience1":"Experiencie-01",
+        "Experience2":"Experiencie-02",
+        "Experience3":"Experiencie-03"
+      }
+    },
     "Testimonials": {},
     "Footer": {}
   },
