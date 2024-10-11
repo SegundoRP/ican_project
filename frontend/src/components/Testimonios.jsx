@@ -2,22 +2,22 @@ export default function Testimonios() {
 
     const customers = [
       {
-        "id":"01",
-        "name":"Alvaro Rebaza",
-        "avatar":"https://unavatar.io/segundorp",
-        "testimony":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
+        id:"01",
+        name:"Alvaro Rebaza",
+        avatar:"https://unavatar.io/segundorp",
+        testimony:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
       },
       {
-        "id":"02",
-        "name":"Ricardo Huaytan",
-        "avatar":"https://unavatar.io/ricardo2930",
-        "testimony":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
+        id:"02",
+        name:"Ricardo Huaytan",
+        avatar:"https://unavatar.io/ricardo2930",
+        testimony:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
       },
       {
-        "id":"02",
-        "name":"Steven Fuertes",
-        "avatar":"https://unavatar.io/stevenfuertes",
-        "testimony":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
+        id:"03",
+        name:"Steven Fuertes",
+        avatar:"https://unavatar.io/stevenfuertes",
+        testimony:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
       }
     ]
 
