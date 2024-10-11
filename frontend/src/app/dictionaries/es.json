@@ -80,7 +80,13 @@
       "Testimony03":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
     },
 
-    "Footer": {}
+    "Footer": {
+      "Title":"REPARTIDEV",
+      "Content":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo est mollitia voluptate qui incidunt nihil reiciendis. Necessitatibus inventore voluptatum aliquid quae, quaerat debitis ratione eaque soluta? Commodi nam cupiditate blanditiis!",
+      "Input":"Ingresa tu email",
+      "Button":"Enviar",
+      "Copyright":"Copyright© 2024 Repartidev - Hecho con el ❤️"
+    }
   },
 
   "DashboardPage": {

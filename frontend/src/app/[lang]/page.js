@@ -23,7 +23,7 @@ export default async function Home({params}) {
       <Nosotros dict={dictionaryLanding}/>
       <Experiencia dict={dictionaryLanding}/>
       <Testimonios dict={dictionaryLanding}/>
-      <Footer />
+      <Footer dict={dictionaryLanding}/>
     </main>
   );
 }
