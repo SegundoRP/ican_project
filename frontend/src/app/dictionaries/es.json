@@ -90,6 +90,11 @@
   },
 
   "DashboardPage": {
+
+    "Home":{
+      
+    },
+
     "Ordenes": {
       "Home": "Ordenes"
     },
