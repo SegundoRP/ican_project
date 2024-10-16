@@ -12,7 +12,7 @@ export default async function pageDashboard({params}) {
 
   return (
     <main className="p-4 bg-slate-300">
-      <Bienvenido dictDashboard={dictionaryDashboard}/>
+      <Bienvenido dictDashboard={dictionaryDashboard.Welcome}/>
       <Cards dictDashboard={dictionaryDashboard.Cards}/>
       <DataPrincipal/>
     </main>
