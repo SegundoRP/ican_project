@@ -109,6 +109,33 @@
      "Welcome":{
       "Greeting":"Bienvenido",
       "User":"Segundo"
+     },
+     "Cards":{
+      "Users":{
+        "Title":"Usuarios",
+        "Quantity":120,
+        "Indicator":10
+      },
+      "Orders":{
+        "Title":"Ordenes",
+        "Quantity":320,
+        "Indicator":10
+      },
+      "Repartidevs":{
+        "Title":"Repartidevs",
+        "Quantity":100,
+        "Indicator":10
+      },
+      "Buildings":{
+        "Title":"Condominios",
+        "Quantity":4,
+        "Names":{
+          "Name01":"Olivos",
+          "Name02":"Esmeralda",
+          "Name03":"Rubies",
+          "Name04":"Gardenias"
+        }
+      }
      } 
     },
 
