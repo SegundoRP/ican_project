@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
 
-export default function FormNuevaOrden() {
+export default function FormNuevaOrden({dict}) {
 
   const { register, handleSubmit , formState:{errors} } = useForm();
 
@@ -15,7 +15,7 @@ export default function FormNuevaOrden() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="grid">
-          <label htmlFor="fecha">Fecha</label>
+          <label htmlFor="fecha">{dict.TablesOrders.Form.Date}</label>
           <input
             className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
             type="date"
@@ -23,11 +23,11 @@ export default function FormNuevaOrden() {
             id="fecha"
             {...register("fecha",{required:true})}
           />
-          {errors.fecha?.type === 'required' && <span className="text-red-600 p-1 text-xs">El campo es requerido</span>}
+          {errors.fecha?.type === 'required' && <span className="text-red-600 p-1 text-xs">{dict.TablesOrders.Form.Errors.Required}</span>}
         </div>
 
         <div className="grid">
-          <label htmlFor="orden">Tipo de Orden</label>
+          <label htmlFor="orden">{dict.TablesOrders.Form.TypeOrder}</label>
           <select
             className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
             id="orden"
@@ -39,22 +39,22 @@ export default function FormNuevaOrden() {
         </div>
 
         <div className="grid">
-          <label htmlFor="telefono">Teléfono</label>
+          <label htmlFor="telefono">{dict.TablesOrders.Form.Phone}</label>
           <input
             className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
-            type="tel"
+            type="number"
             name="telefono"
             id="telefono"
             placeholder="997514992"
             {...register("telefono",{required:true,maxLength:9,minLength:9})}
           />
-          {errors.telefono?.type === 'required' && <span className="text-red-600 p-1 text-xs">El campo es requerido</span>}
-          {errors.telefono?.type === 'maxLength' && <span className="text-red-600 p-1 text-xs">El campo debe tener máximo 9 caracteres</span>}
-          {errors.telefono?.type === 'minLength' && <span className="text-red-600 p-1 text-xs">El campo debe tener mínimo 9 caracteres</span>}
+          {errors.telefono?.type === 'required' && <span className="text-red-600 p-1 text-xs">{dict.TablesOrders.Form.Errors.Required}</span>}
+          {errors.telefono?.type === 'maxLength' && <span className="text-red-600 p-1 text-xs">{dict.TablesOrders.Form.Errors.MaxLength}</span>}
+          {errors.telefono?.type === 'minLength' && <span className="text-red-600 p-1 text-xs">{dict.TablesOrders.Form.Errors.MinLength}</span>}
         </div>
 
         <div className="grid">
-          <label htmlFor="condominios">Condominio</label>
+          <label htmlFor="condominios">{dict.TablesOrders.Form.Building}</label>
           <select
             className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
             id="condominios"
@@ -67,7 +67,7 @@ export default function FormNuevaOrden() {
           </select>
         </div>
         <div className="grid">
-          <label htmlFor="torre">N° de Torre</label>
+          <label htmlFor="torre">{dict.TablesOrders.Form.Tower}</label>
           <select
             className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
             id="torre"
@@ -80,7 +80,7 @@ export default function FormNuevaOrden() {
           </select>
         </div>
         <div className="grid">
-          <label htmlFor="piso">N° de Piso</label>
+          <label htmlFor="piso">{dict.TablesOrders.Form.Floor}</label>
           <select
             className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
             id="piso"
@@ -95,14 +95,14 @@ export default function FormNuevaOrden() {
         </div>
         <div>
         <input className="rounded" type="checkbox" id="terminosycondiciones" {...register("terminos",{required:true})}/>
-        <label className="text-sm ml-1" htmlFor="terminosycondiciones">Acepto los <a href="" className="text-blue-600">Terminos y Condiciones</a></label>
-        {errors.terminos?.type === 'required' && <p className="text-red-600 p-1 text-xs">Aceptar los términos y condiciones</p>}
+        <label className="text-sm ml-1" htmlFor="terminosycondiciones">{dict.TablesOrders.Form.TC.Accept} <a href="" className="text-blue-600">{dict.TablesOrders.Form.TC.TC}</a></label>
+        {errors.terminos?.type === 'required' && <p className="text-red-600 p-1 text-xs">{dict.TablesOrders.Form.Errors.AcceptTC}</p>}
         </div>
         <div>
           <button
             className="bg-blue-600 p-3 rounded-lg text-white text-sm font-semibold"
             type="submit"
-          >Registrar</button>
+          >{dict.TablesOrders.Form.Button}</button>
         </div>
       </form>
   )

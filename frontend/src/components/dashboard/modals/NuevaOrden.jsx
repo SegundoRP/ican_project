@@ -8,7 +8,7 @@ import { useState } from "react";
 import FormNuevaOrden from "../Forms/FormNuevaOrden";
 import { HiClipboardCheck } from "react-icons/hi";
 
-export default function NuevaOrden() {
+export default function NuevaOrden({dict}) {
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -20,7 +20,7 @@ export default function NuevaOrden() {
         onClick={() => setOpenModal(true)}
       >
         
-        <p className="flex items-center justify-between gap-1"><HiClipboardCheck className="size-5"/> Nueva Orden</p>
+        <p className="flex items-center justify-between gap-1"><HiClipboardCheck className="size-5"/>{dict.TablesOrders.ButtonForm}</p>
       </Button>
       <Modal
         show={openModal}
@@ -32,10 +32,10 @@ export default function NuevaOrden() {
         <Modal.Body>
           <div className="space-y-6">
             <h3 className="text-2xl text-center font-bold text-gray-900">
-              Registrar Nueva Orden
+            {dict.TablesOrders.Form.Title}
             </h3>
             <div className="">
-              <FormNuevaOrden/>
+              <FormNuevaOrden dict={dict}/>
             </div>
           </div>
         </Modal.Body>

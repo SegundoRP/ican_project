@@ -136,6 +136,46 @@
           "Name04":"Gardenias"
         }
       }
+     },
+     "DataTablesHome":{
+      "TablesOrders":{
+        "Title":"Ordenes",
+        "Search":"Buscar Pedido",
+        "ButtonForm":"Nueva Orden",
+        "Form":{
+          "Title":"Registrar Nueva Orden",
+          "Date":"Fecha",
+          "TypeOrder":"Tipo de Orden",
+          "Phone":"Teléfono",
+          "Building":"Condominio",
+          "Tower":"N° de Torre",
+          "Floor":"N° de Piso",
+          "TC":{
+            "Accept":"Acepto los",
+            "TC":"Terminos y Condiciones"
+          },
+          "Button":"Registrar",
+          "Errors":{
+            "Required":"El campo es requerido",
+            "MaxLength":"El campo debe tener máximo 9 caracteres",
+            "MinLength":"El campo debe tener mínimo 9 caracteres",
+            "AcceptTC":"Aceptar los Terminos y Condiciones"
+          }
+        },
+        "Columns":{
+          "Order":"Orden",
+          "Type":"Tipo",
+          "Date":"Fecha",
+          "Price":"Precio",
+          "Building":"Condominio",
+          "Repartidev":"Repartidev",
+          "Status":"Estado"
+        }
+      },
+      "TablesRepartidevs":{
+        "Title":"Repartidevs",
+        "Link":"Ver Todos"
+      }
      } 
     },
 

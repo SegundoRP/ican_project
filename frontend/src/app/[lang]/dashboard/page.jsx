@@ -14,7 +14,7 @@ export default async function pageDashboard({params}) {
     <main className="p-4 bg-slate-300">
       <Bienvenido dictDashboard={dictionaryDashboard.Welcome}/>
       <Cards dictDashboard={dictionaryDashboard.Cards}/>
-      <DataPrincipal/>
+      <DataPrincipal dictDashboard={dictionaryDashboard.DataTablesHome}/>
     </main>
   )
 }
