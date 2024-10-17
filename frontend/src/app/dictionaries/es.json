@@ -179,10 +179,28 @@
      } 
     },
 
-    "Ordenes": {
-      "Home": "Ordenes"
+    "OrdersPage": {
+      "Title": "Reporte de Ordenes",
+      "Cards":{
+      "Orders":{
+        "Title":"Ordenes",
+        "Quantity":320,
+        "Indicator":10
+      },
+      "Requests":{
+        "Title":"Pedidos",
+        "Quantity":220,
+        "Indicator":10
+      },
+      
+      "Services":{
+        "Title":"Servicios",
+        "Quantity":100,
+        "Indicator":10
+      }
+      }
     },
-    "Repartidevs": {
+    "RepartidevsPage": {
       "Home": "Repartidevs"
     }
   }
