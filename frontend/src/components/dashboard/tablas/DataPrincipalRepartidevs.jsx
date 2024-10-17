@@ -76,18 +76,18 @@ const dataRepartidevs = [
     }
   ];
 
-export default function DataPrincipalRepartidevs() {
+export default function DataPrincipalRepartidevs({dictionary}) {
   return (
     <section>
       <article className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-bold  text-gray-900 border-b-4 border-yellow-200 mb-2 inline-block">
-          Repartidevs
+          {dictionary.TablesRepartidevs.Title}
         </h2>
         <a
           href="/dashboard/repartidevs"
           className="text-sm font-medium text-blue-600 hover:underline"
         >
-          Ver Todos
+          {dictionary.TablesRepartidevs.Link}
         </a>
       </article>
       <article className="lg:h-screen overflow-scroll hover:overflow-scroll md:grid md:grid-cols-3 md:gap-x-10 md:gap-y-5 lg:gap-4 lg:grid lg:grid-cols-1">

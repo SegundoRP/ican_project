@@ -13,7 +13,7 @@ export default function DataPrincipal({dictDashboard}) {
     </div>
 
     <div className="bg-white p-5 rounded-xl">
-      <DataPrincipalRepartidevs/>
+      <DataPrincipalRepartidevs dictionary={dictDashboard}/>
     </div>
   </section>
   )
