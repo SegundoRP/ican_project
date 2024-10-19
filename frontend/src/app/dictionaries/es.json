@@ -201,7 +201,58 @@
       }
     },
     "RepartidevsPage": {
-      "Home": "Repartidevs"
+      "Title": "Lista de Repartidevs",
+      "Search":"Buscar Repartidev",
+      "ButtonForm":"Nuevo Repartidev",
+      "Form":{
+          "Title":"Quiero Ser Repartidev",
+          "DNI":"DNI",
+          "Phone":"Teléfono",
+          "Building":"Condominio",
+          "Tower":"N° de Torre",
+          "Floor":"N° de Piso",
+          "TC":{
+            "Accept":"Acepto los",
+            "TC":"Terminos y Condiciones"
+          },
+          "Button":"Ser Repartidev",
+          "Errors":{
+            "Required":"El campo es requerido",
+            "MaxLengthDNI":"El campo debe tener máximo 8 caracteres",
+            "MinLengthDNI":"El campo debe tener mínimo 8 caracteres",
+            "MaxLengthPhone":"El campo debe tener máximo 9 caracteres",
+            "MinLengthPhone":"El campo debe tener mínimo 9 caracteres",
+            "AcceptTC":"Aceptar los Terminos y Condiciones"
+          }
+        },
+      "Columns":{
+          "Name":"Nombres",
+          "LastName":"Apellidos",
+          "DNI":"DNI",
+          "Email":"Correo",
+          "Code":"Código",
+          "Building":"Condominio",
+          "Tower":"Torre",
+          "Contact":"Contacto"
+        },
+      "Cards":{
+        "Repartidevs":{
+          "Title":"Repartidevs",
+          "Quantity":100,
+          "Indicator":10
+        },
+        "Requests":{
+          "Title":"Pedidos",
+          "Quantity":220,
+          "Indicator":10
+        },
+        
+        "Services":{
+          "Title":"Servicios",
+          "Quantity":100,
+          "Indicator":10
+        }
+      }
     }
   }
 }

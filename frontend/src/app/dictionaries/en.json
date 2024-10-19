@@ -200,8 +200,59 @@
       }
 
     },
-    "Repartidevs": {
-      "Home": "Repartidevs"
+    "RepartidevsPage": {
+      "Title": "List of Repartidevs",
+      "Search":"Search Repartidev",
+      "ButtonForm":"New Repartidev",
+      "Form":{
+          "Title":"I want to be a Repartidev",
+          "DNI":"DNI",
+          "Phone":"Phone",
+          "Building":"Building",
+          "Tower":"Tower Number",
+          "Floor":"Floor Number",
+          "TC":{
+            "Accept":"I accept the",
+            "TC":"Terms and Conditions"
+          },
+          "Button":"Be a Repartidev",
+          "Errors":{
+            "Required":"The field is required",
+            "MaxLengthDNI":"The field must have a maximum of 8 characters",
+            "MinLengthDNI":"The field must have a minimum of 8 characters",
+            "MaxLengthPhone":"The field must have a maximum of 9 characters",
+            "MinLengthPhone":"The field must have a minimum of 9 characters",
+            "AcceptTC":"Accept the Terms and Conditions"
+          }
+        },
+      "Columns":{
+          "Name":"Name",
+          "LastName":"LastName",
+          "DNI":"DNI",
+          "Email":"Email",
+          "Code":"Code",
+          "Building":"Building",
+          "Tower":"Tower",
+          "Contact":"Contact"
+        },
+      "Cards":{
+        "Repartidevs":{
+          "Title":"Repartidevs",
+          "Quantity":100,
+          "Indicator":10
+        },
+        "Requests":{
+          "Title":"Requests",
+          "Quantity":220,
+          "Indicator":10
+        },
+        
+        "Services":{
+          "Title":"Services",
+          "Quantity":100,
+          "Indicator":10
+        }
+      }
     }
   }
 }
