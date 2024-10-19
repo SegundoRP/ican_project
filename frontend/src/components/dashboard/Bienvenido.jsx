@@ -1,13 +1,13 @@
 import { Avatar, Datepicker } from "flowbite-react";
 
 
-export default function Bienvenido() {
+export default function Bienvenido({dictDashboard}) {
   return (
     <section className="mt-24 sm:mt-28 mb-5 sm:mb-10">
         <div className="grid place-content-center sm:flex sm:items-center sm:gap-4">
           <Avatar img="https://unavatar.io/segundorp" rounded size="lg" />
           <div className="text-center space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-bold">Bienvenido <span className="text-blue-600 font-extrabold">Segundo</span></h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">{dictDashboard.Greeting} <span className="text-blue-600 font-extrabold">{dictDashboard.User}</span></h2>
             <Datepicker
               className="flex justify-center"
               language="es-ES"

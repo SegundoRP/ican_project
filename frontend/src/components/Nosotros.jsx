@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Nosotros() {
+export default function Nosotros({dict}) {
   return (
     <section
       id="nosotros"
@@ -17,16 +17,13 @@ export default function Nosotros() {
       </div>
       <div className="">
         <h2 className="text-5xl text-gray-800 font-bold md:text-6xl 2xl:text-7xl">
-          Sobre Nosotros
+          {dict.Team.Titles.Title}
         </h2>
         <h3 className="text-4xl md:text-5xl 2xl:text-6xl text-gray-600 border-b-8 border-yellow-300 inline-block">
-          para ti
+        {dict.Team.Titles.SubTitle}
         </h3>
         <p className="text-pretty md:text-lg xl:text-xl tracking-wide text-gray-500 my-5 md:m-8 2xl:mx-20">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem
-          possimus molestiae dolor, non eius repellendus voluptatibus tenetur
-          dignissimos doloremque ullam illo distinctio, natus voluptate rerum.
-          Commodi blanditiis vela.
+        {dict.Team.Content}
         </p>
         <button className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-yellow-300 px-6 font-bold text-gray-900 shadow-2xl shadow-gray-900/50">
           <div className="mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
@@ -46,7 +43,7 @@ export default function Nosotros() {
               ></path>
             </svg>
           </div>
-          <span>Saber más</span>
+          <span>{dict.Team.Button}</span>
         </button>
       </div>
     </section>

@@ -10,7 +10,7 @@ import {
   HiLogout,
 } from "react-icons/hi";
 
-export default function MenuDashboard() {
+export default function MenuDashboard({dictDashboard}) {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 justify-between items-center">
       <Navbar fluid={true} rounded={true}>
@@ -37,17 +37,17 @@ export default function MenuDashboard() {
             </span>
           </Dropdown.Header>
           <Dropdown.Item icon={HiOutlineChartBar} href="/dashboard">
-            <a href="/dashboard">Dashboard</a>
+            <a href="/dashboard">{dictDashboard.Menu.Dropdown.Dashboard}</a>
           </Dropdown.Item>
           <Dropdown.Item icon={HiOutlineShoppingCart} href="/dashboard/ordenes">
-            <a href="/dashboard/ordenes">Ordenes</a>
+            <a href="/dashboard/ordenes">{dictDashboard.Menu.Dropdown.Orders}</a>
           </Dropdown.Item>
           <Dropdown.Item icon={HiOutlineUserGroup} href="/dashboard/repartidevs">
-            <a href="/dashboard/repartidevs">Repartidevs</a>
+            <a href="/dashboard/repartidevs">{dictDashboard.Menu.Dropdown.Repartidevs}</a>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item icon={HiLogout} className="text-red-500">
-            <a href="">Cerrar Sesión</a>
+            <a href="#">{dictDashboard.Menu.Dropdown.Logout}</a>
           </Dropdown.Item>
         </Dropdown>
       </Navbar>
@@ -55,13 +55,13 @@ export default function MenuDashboard() {
       <div className="flex justify-center bg-white sm:flex sm:justify-start sm:pl-16 pb-4">
         <Breadcrumb aria-label="Default breadcrumb example">
           <Breadcrumb.Item href="/dashboard" icon={HiOutlineHome}>
-            Home
+          {dictDashboard.Menu.Breadcrumb.Home}
           </Breadcrumb.Item>
           <Breadcrumb.Item href="/dashboard" icon={HiOutlineChartBar}>
-            Dashboard
+          {dictDashboard.Menu.Breadcrumb.Dashboard}
           </Breadcrumb.Item>
           <Breadcrumb.Item href="" icon={HiOutlineUser}>
-            Segundo Rebaza
+          {dictDashboard.Menu.Breadcrumb.User}
           </Breadcrumb.Item>
         </Breadcrumb>
       </div>

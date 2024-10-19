@@ -6,7 +6,9 @@ import { FloatingLabel } from "flowbite-react";
 import { HiOutlinePhoneOutgoing } from "react-icons/hi";
 import NuevoRepartidev from "../modals/NuevoRepartidev";
 
-const customStyles = {
+export default function DataPaginaRepartidevs({dictionary}) {
+
+  const customStyles = {
     rows: {
       style: {
         minHeight: "52px",
@@ -32,42 +34,42 @@ const customStyles = {
 
 const columns = [
     {
-      name: "Nombres",
+      name: dictionary.Columns.Name,
       selector: (row) => row.nombre,
       sortable: true,
     },
     {
-      name: "Apellidos",
+      name: dictionary.Columns.LastName,
       selector: (row) => row.apellido,
       sortable: true,
     },
     {
-      name: "DNI",
+      name: dictionary.Columns.DNI,
       selector: (row) => row.dni,
       sortable: true,
     },
     {
-      name: "Email",
+      name: dictionary.Columns.Email,
       selector: (row) => row.email,
       sortable: true,
     },
     {
-      name: "Cód",
+      name: dictionary.Columns.Code,
       selector: (row) => row.codigo,
       sortable: true,
     },
     {
-      name: "Condominio",
+      name: dictionary.Columns.Building,
       selector: (row) => row.condominio,
       sortable: true,
     },
     {
-      name: "Torre",
+      name: dictionary.Columns.Tower,
       selector: (row) => row.torre,
       sortable: true,
     },
     {
-      name: "Contacto",
+      name: dictionary.Columns.Contact,
       selector: (row) => (
         <a
           href="#"
@@ -260,7 +262,7 @@ const columns = [
     },
   ];
 
-export default function DataPaginaRepartidevs() {
+
     const [register, setRegister] = useState(data);
 
     const handleChange = (e) => {
@@ -276,10 +278,10 @@ export default function DataPaginaRepartidevs() {
       <article className="grid sm:flex sm:items-center sm:justify-between mb-4">
         <FloatingLabel
           variant="outlined"
-          label="Buscar Repartidev"
+          label={dictionary.Search}
           onChange={handleChange}
         />
-        <NuevoRepartidev/>
+        <NuevoRepartidev dictionary={dictionary}/>
       </article>
 
       <DataTable

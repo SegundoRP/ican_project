@@ -8,7 +8,7 @@ import { useState } from "react";
 import { HiOutlineIdentification } from "react-icons/hi";
 import FormNuevoRepartidev from "../Forms/FormNuevoRepartidev";
 
-export default function NuevoRepartidev() {
+export default function NuevoRepartidev({dictionary}) {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export default function NuevoRepartidev() {
       className="font-semibold p-1"
       onClick={() => setOpenModal(true)}
     >
-      <p className="flex items-center justify-between gap-1"><HiOutlineIdentification className="size-5"/> Nuevo Repartidev</p>
+      <p className="flex items-center justify-between gap-1"><HiOutlineIdentification className="size-5"/>{dictionary.ButtonForm}</p>
     </Button>
     <Modal
       show={openModal}
@@ -30,10 +30,10 @@ export default function NuevoRepartidev() {
       <Modal.Body>
         <div className="space-y-6">
           <h3 className="text-2xl text-center font-bold text-gray-900">
-            Quiero ser Repartidev
+            {dictionary.Form.Title}
           </h3>
           <div>
-            <FormNuevoRepartidev/>
+            <FormNuevoRepartidev dictionary={dictionary}/>
           </div>
         </div>
       </Modal.Body>

@@ -1,31 +1,258 @@
 {
-    "LandingPage": {
-      "Navbar": {
-          "Buttons":{
-              "Login":"Iniciar Sesion",
-              "Register":"Registrate"
-          },
-          "Menu":{
-              "Home":"Inicio",
-              "Team":"Nosotros",
-              "Services":"Servicios",
-              "Contact":"Te Ayudamos"
-          }
+  "LandingPage": {
+    "Navbar": {
+      "Buttons": {
+        "Login": "Iniciar Sesion",
+        "Register": "Registrate"
       },
-      "Introduction": {},
-      "Services": {},
-      "Team": {},
-      "Experience": {},
-      "Testimonials": {},
-      "Footer": {}
+      "Menu": {
+        "Home": "Inicio",
+        "Team": "Nosotros",
+        "Services": "Servicios",
+        "Contact": "Te Ayudamos"
+      }
     },
-  
-    "DashboardPage": {
-      "Ordenes": {
-        "Home": "Ordenes"
+
+    "Introduction": {
+      "Titles": {
+        "Title": "Te Ayudamos",
+        "SubTitle1": "a tener en tus manos",
+        "SubTitle2": "tus pedidos"
       },
-      "Repartidevs": {
-        "Home": "Repartidevs"
+      "Content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem possimus molestiae dolor, non eius repellendus voluptatibus tenetur dignissimos doloremque ullam illo distinctio, natus voluptate rerum.",
+      "Button": "Empezar"
+    },
+
+    "Services": {
+      "Titles": {
+        "Title": "Que hacemos",
+        "SubTitle": "para ayudarte"
+      },
+      "ServicesContent": {
+        "Service01": {
+          "Title": "Servicio 001",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service02": {
+          "Title": "Servicio 002",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service03": {
+          "Title": "Servicio 003",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        },
+        "Service04": {
+          "Title": "Servicio 004",
+          "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus provident, asperiores omnis, suscipit vel accusantium fuga autem maiores, corporis deserunt mollitia? Et iure excepturi aliquam dolor minima minus accusamus."
+        }
+      }
+    },
+
+    "Team": {
+      "Titles": {
+        "Title": "Sobre Nosotros",
+        "SubTitle": "para ti"
+      },
+      "Content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem possimus molestiae dolor, non eius repellendus voluptatibus tenetur dignissimos doloremque ullam illo distinctio, natus voluptate rerum. Commodi blanditiis vela.",
+      "Button": "Saber más"
+    },
+    
+    "Experience": {
+      "Titles": {
+        "Title": "Nuestros Trabajos",
+        "SubTitle": "recientes"
+      },
+      "Content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eos quam repudiandae, esse accusamus explicabo! Dolore, architecto. Exercitationem vero beatae consectetur, dolore necessitatibus cum iusto quis veritatis vel unde neque.",
+      "Experiences":{
+        "Experience1":"Experiencia-01",
+        "Experience2":"Experiencia-02",
+        "Experience3":"Experiencia-03"
+      }
+    },
+
+    "Testimonials": {
+      "Titles":{
+        "Title":"Nuestros Testimonios",
+        "SubTitle":"que dicen de nosotros"
+      },
+      "Testimony01":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus.",
+      "Testimony02":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus.",
+      "Testimony03":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facererepellendus provident, asperiores omnis suscipit vel accusantiu fuga autem maiores, corporis deserunt mollitia? Et iure excepturialiquam dolor minima minus accusamus."
+    },
+
+    "Footer": {
+      "Title":"REPARTIDEV",
+      "Content":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo est mollitia voluptate qui incidunt nihil reiciendis. Necessitatibus inventore voluptatum aliquid quae, quaerat debitis ratione eaque soluta? Commodi nam cupiditate blanditiis!",
+      "Input":"Ingresa tu email",
+      "Button":"Enviar",
+      "Copyright":"Copyright© 2024 Repartidev - Hecho con el ❤️"
+    }
+  },
+
+  "DashboardPage": {
+
+    "Home":{
+
+     "Menu":{
+      "Dropdown":{
+        "Dashboard":"Panel de Control",
+        "Orders":"Ordenes",
+        "Repartidevs":"Repartidevs",
+        "Logout":"Cerrar Sesión"
+      },
+      "Breadcrumb":{
+        "Home":"Inicio",
+        "Dashboard":"Panel de Control",
+        "User":"Segundo Rebaza"
+      }
+     }, 
+     "Welcome":{
+      "Greeting":"Bienvenido",
+      "User":"Segundo"
+     },
+     "Cards":{
+      "Users":{
+        "Title":"Usuarios",
+        "Quantity":120,
+        "Indicator":10
+      },
+      "Orders":{
+        "Title":"Ordenes",
+        "Quantity":320,
+        "Indicator":10
+      },
+      "Repartidevs":{
+        "Title":"Repartidevs",
+        "Quantity":100,
+        "Indicator":10
+      },
+      "Buildings":{
+        "Title":"Condominios",
+        "Quantity":4,
+        "Names":{
+          "Name01":"Olivos",
+          "Name02":"Esmeralda",
+          "Name03":"Rubies",
+          "Name04":"Gardenias"
+        }
+      }
+     },
+     "DataTablesHome":{
+      "TablesOrders":{
+        "Title":"Ordenes",
+        "Search":"Buscar Pedido",
+        "ButtonForm":"Nueva Orden",
+        "Form":{
+          "Title":"Registrar Nueva Orden",
+          "Date":"Fecha",
+          "TypeOrder":"Tipo de Orden",
+          "Phone":"Teléfono",
+          "Building":"Condominio",
+          "Tower":"N° de Torre",
+          "Floor":"N° de Piso",
+          "TC":{
+            "Accept":"Acepto los",
+            "TC":"Terminos y Condiciones"
+          },
+          "Button":"Registrar",
+          "Errors":{
+            "Required":"El campo es requerido",
+            "MaxLength":"El campo debe tener máximo 9 caracteres",
+            "MinLength":"El campo debe tener mínimo 9 caracteres",
+            "AcceptTC":"Aceptar los Terminos y Condiciones"
+          }
+        },
+        "Columns":{
+          "Order":"Orden",
+          "Type":"Tipo",
+          "Date":"Fecha",
+          "Price":"Precio",
+          "Building":"Condominio",
+          "Repartidev":"Repartidev",
+          "Status":"Estado"
+        }
+      },
+      "TablesRepartidevs":{
+        "Title":"Repartidevs",
+        "Link":"Ver Todos"
+      }
+     } 
+    },
+
+    "OrdersPage": {
+      "Title": "Reporte de Ordenes",
+      "Cards":{
+      "Orders":{
+        "Title":"Ordenes",
+        "Quantity":320,
+        "Indicator":10
+      },
+      "Requests":{
+        "Title":"Pedidos",
+        "Quantity":220,
+        "Indicator":10
+      },
+      
+      "Services":{
+        "Title":"Servicios",
+        "Quantity":100,
+        "Indicator":10
+      }
+      }
+    },
+    "RepartidevsPage": {
+      "Title": "Lista de Repartidevs",
+      "Search":"Buscar Repartidev",
+      "ButtonForm":"Nuevo Repartidev",
+      "Form":{
+          "Title":"Quiero Ser Repartidev",
+          "DNI":"DNI",
+          "Phone":"Teléfono",
+          "Building":"Condominio",
+          "Tower":"N° de Torre",
+          "Floor":"N° de Piso",
+          "TC":{
+            "Accept":"Acepto los",
+            "TC":"Terminos y Condiciones"
+          },
+          "Button":"Ser Repartidev",
+          "Errors":{
+            "Required":"El campo es requerido",
+            "MaxLengthDNI":"El campo debe tener máximo 8 caracteres",
+            "MinLengthDNI":"El campo debe tener mínimo 8 caracteres",
+            "MaxLengthPhone":"El campo debe tener máximo 9 caracteres",
+            "MinLengthPhone":"El campo debe tener mínimo 9 caracteres",
+            "AcceptTC":"Aceptar los Terminos y Condiciones"
+          }
+        },
+      "Columns":{
+          "Name":"Nombres",
+          "LastName":"Apellidos",
+          "DNI":"DNI",
+          "Email":"Correo",
+          "Code":"Código",
+          "Building":"Condominio",
+          "Tower":"Torre",
+          "Contact":"Contacto"
+        },
+      "Cards":{
+        "Repartidevs":{
+          "Title":"Repartidevs",
+          "Quantity":100,
+          "Indicator":10
+        },
+        "Requests":{
+          "Title":"Pedidos",
+          "Quantity":220,
+          "Indicator":10
+        },
+        
+        "Services":{
+          "Title":"Servicios",
+          "Quantity":100,
+          "Indicator":10
+        }
       }
     }
   }
+}
