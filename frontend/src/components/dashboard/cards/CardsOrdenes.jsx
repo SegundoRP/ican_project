@@ -5,7 +5,7 @@ import {
     HiOutlineShieldCheck,
   } from "react-icons/hi";
 
-export default function CardsOrdenes() {
+export default function CardsOrdenes({dictionary}) {
   return (
     <section className="grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-1 xl:grid-rows-3 gap-5 text-center">
       <div className="bg-white rounded-xl p-5 grid gap-2 hover:bg-green-50 hover:transition-all hover:cursor-pointer hover:text-green-500">
@@ -13,10 +13,10 @@ export default function CardsOrdenes() {
           size={40}
           className="text-green-500 bg-green-100 rounded-full p-2"
         />
-        <h3 className="text-2xl font-semibold">Ordenes</h3>
-        <h3 className="text-6xl 2xl:text-7xl font-semibold">320</h3>
+        <h3 className="text-2xl font-semibold">{dictionary.Orders.Title}</h3>
+        <h3 className="text-6xl 2xl:text-7xl font-semibold">{dictionary.Orders.Quantity}</h3>
         <h3 className="text-green-500 font-bold flex items-center justify-center">
-          +10% <HiOutlineTrendingUp />
+          +{dictionary.Orders.Indicator}% <HiOutlineTrendingUp />
         </h3>
       </div>
 
@@ -25,10 +25,10 @@ export default function CardsOrdenes() {
           size={40}
           className="text-amber-500 bg-amber-100 rounded-full p-2"
         />
-        <h3 className="text-2xl font-semibold">Pedidos</h3>
-        <h3 className="text-6xl 2xl:text-7xl font-semibold">220</h3>
+        <h3 className="text-2xl font-semibold">{dictionary.Requests.Title}</h3>
+        <h3 className="text-6xl 2xl:text-7xl font-semibold">{dictionary.Requests.Quantity}</h3>
         <h3 className="text-green-500 font-bold flex items-center justify-center">
-          +10% <HiOutlineTrendingUp />
+          +{dictionary.Requests.Indicator}% <HiOutlineTrendingUp />
         </h3>
       </div>
 
@@ -37,10 +37,10 @@ export default function CardsOrdenes() {
           size={40}
           className="text-teal-500 bg-teal-100 rounded-full p-2"
         />
-        <h3 className="text-2xl font-semibold">Servicios</h3>
-        <h3 className="text-6xl 2xl:text-7xl font-semibold">100</h3>
+        <h3 className="text-2xl font-semibold">{dictionary.Services.Title}</h3>
+        <h3 className="text-6xl 2xl:text-7xl font-semibold">{dictionary.Services.Quantity}</h3>
         <h3 className="text-green-500 font-bold flex items-center justify-center">
-          +10% <HiOutlineTrendingUp />
+          +{dictionary.Services.Indicator}% <HiOutlineTrendingUp />
         </h3>
       </div>
     </section>
