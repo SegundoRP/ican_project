@@ -4,12 +4,12 @@ import DataRankingRepartidev from '@/components/dashboard/tablas/DataRankingRepa
 import React from 'react'
 
 export default async function pageRepartidevs({params}) {
-  
+
   const {lang} = params
   const dictionary = await import (`@/app/dictionaries/${lang}.json`)
   .then((m) => m.default)
   const dictionaryDashboard = dictionary.DashboardPage.RepartidevsPage
-  
+
   return (
     <main className="mt-28 p-4 sm:p-6 bg-slate-300">
       <section className="bg-white rounded-xl mb-4 p-5">
