@@ -19,7 +19,7 @@ export default function Servicios({dict}) {
             {dict.Services.ServicesContent.Service01.Content}
             </p>
           </div>
-  
+
           <div className="bg-gray-200 rounded-xl p-5">
             <h4 className="sm:text-2xl font-semibold border-b-4 border-yellow-300 inline-block">
             {dict.Services.ServicesContent.Service02.Title}
@@ -28,7 +28,7 @@ export default function Servicios({dict}) {
             {dict.Services.ServicesContent.Service02.Content}
             </p>
           </div>
-  
+
           <div className="bg-gray-200 rounded-xl p-5">
             <h4 className="sm:text-2xl font-semibold border-b-4 border-yellow-300 inline-block">
             {dict.Services.ServicesContent.Service03.Title}
@@ -37,7 +37,7 @@ export default function Servicios({dict}) {
             {dict.Services.ServicesContent.Service03.Content}
             </p>
           </div>
-  
+
           <div className="bg-gray-200 rounded-xl p-5">
             <h4 className="sm:text-2xl font-semibold border-b-4 border-yellow-300 inline-block">
             {dict.Services.ServicesContent.Service04.Title}
@@ -50,4 +50,3 @@ export default function Servicios({dict}) {
       </section>
     );
   }
-  
