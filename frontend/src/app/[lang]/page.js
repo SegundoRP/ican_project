@@ -14,10 +14,10 @@ export default async function Home({params}) {
   const dictionary = await import (`@/app/dictionaries/${lang}.json`)
   .then((m) => m.default)
   const dictionaryLanding = dictionary.LandingPage
-  
+
   return (
     <main className="">
-      <Navbar dict={dictionaryLanding}/> 
+      <Navbar dict={dictionaryLanding}/>
       <Introduccion dict={dictionaryLanding}/>
       <Servicios dict={dictionaryLanding}/>
       <Nosotros dict={dictionaryLanding}/>
