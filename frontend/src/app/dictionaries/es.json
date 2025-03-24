@@ -56,7 +56,7 @@
       "Content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rem possimus molestiae dolor, non eius repellendus voluptatibus tenetur dignissimos doloremque ullam illo distinctio, natus voluptate rerum. Commodi blanditiis vela.",
       "Button": "Saber más"
     },
-    
+
     "Experience": {
       "Titles": {
         "Title": "Nuestros Trabajos",
@@ -105,7 +105,7 @@
         "Dashboard":"Panel de Control",
         "User":"Segundo Rebaza"
       }
-     }, 
+     },
      "Welcome":{
       "Greeting":"Bienvenido",
       "User":"Segundo"
@@ -176,7 +176,7 @@
         "Title":"Repartidevs",
         "Link":"Ver Todos"
       }
-     } 
+     }
     },
 
     "OrdersPage": {
@@ -192,7 +192,7 @@
         "Quantity":220,
         "Indicator":10
       },
-      
+
       "Services":{
         "Title":"Servicios",
         "Quantity":100,
@@ -246,12 +246,38 @@
           "Quantity":220,
           "Indicator":10
         },
-        
+
         "Services":{
           "Title":"Servicios",
           "Quantity":100,
           "Indicator":10
         }
+      }
+    }
+  },
+
+  "RegisterPage": {
+    "Title": "Regístrate",
+    "Form": {
+      "Name": "Nombres",
+      "LastName": "Apellidos",
+      "Email": "Correo",
+      "Password": "Contraseña",
+      "ConfirmPassword": "Confirmar Contraseña",
+      "Login": "Iniciar Sesión",
+      "Register": "Regístrate",
+      "AlreadyHaveAccount": "¿Ya tienes una cuenta?",
+      "TC": {
+        "Accept": "Acepto los",
+        "TC": "Terminos y Condiciones"
+      },
+      "Button": "Registrarme",
+      "Errors": {
+        "Required": "El campo es requerido",
+        "Email": "El email no es valido",
+        "MaxLength": "El campo debe tener máximo 50 caracteres",
+        "MinLength": "El campo debe tener mínimo 3 caracteres",
+        "AcceptTC": "Aceptar los Terminos y Condiciones"
       }
     }
   }

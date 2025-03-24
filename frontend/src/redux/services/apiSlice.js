@@ -1,6 +1,6 @@
 // Code from https://redux-toolkit.js.org/rtk-query/usage/customizing-queries#preventing-multiple-unauthorized-errors
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setAuth, logout } from '../features/authSlice'
 import { Mutex } from 'async-mutex'
 
