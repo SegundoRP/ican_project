@@ -1,0 +1,1 @@
+export { default as useRegister } from './user-register';
