@@ -1,6 +1,6 @@
-import { apiSlice } from './services/apiSlice';
+import { apiSlice } from '../services/apiSlice';
 
-const authApiSlice = apiSlice.injectEndpoints({
+export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
     retrieveUser: builder.query({
       query: () => '/users/me/',
