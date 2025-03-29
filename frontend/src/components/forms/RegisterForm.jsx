@@ -2,7 +2,6 @@
 
 import { useRegister } from '@/hooks';
 import { Form } from '@/components/forms';
-import { useState, useEffect } from 'react';
 
 export default function RegisterForm({dictionary}) {
   const {
