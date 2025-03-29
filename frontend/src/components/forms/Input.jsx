@@ -1,10 +1,10 @@
-export default function Input({ 
+export default function Input({
   labelId,
   type,
   onChange,
   value,
   children,
-  required = false 
+  required = false
 }) {
   return(
     <div>

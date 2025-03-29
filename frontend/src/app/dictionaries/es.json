@@ -268,7 +268,7 @@
       "AlreadyHaveAccount": "¿Ya tienes una cuenta?",
       "TC": {
         "Accept": "Acepto los",
-        "TC": "Terminos y Condiciones"
+        "TC": "Términos y Condiciones"
       },
       "Button": "Registrarme",
       "Errors": {
@@ -279,5 +279,12 @@
         "AcceptTC": "Aceptar los Terminos y Condiciones"
       }
     }
+  },
+
+  "ActivationPage": {
+    "Title": "Activando tu cuenta",
+    "Loading": "Cargando",
+    "AccountActivated": "Cuenta activada",
+    "AccountFailed": "Falló activar la cuenta"
   }
 }
