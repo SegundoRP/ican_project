@@ -1,1 +1,2 @@
-export { default as useRegister } from './user-register';
+export { default as useRegister } from './use-register';
+export { default as useLogin } from './use-login';

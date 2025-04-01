@@ -2,6 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { RegisterForm } from '@/components/forms';
 
+export const metadata = {
+  title: "Ican | Registro",
+  description: "Ican página de registro",
+};
+
 export default async function PageRegister({params}) {
   const {lang} = params;
   const dictionary = await import(`@/app/dictionaries/${lang}.json`).then((m) => m.default);
