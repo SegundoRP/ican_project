@@ -1,16 +1,31 @@
+import Link from 'next/link';
+
 export default function Input({
   labelId,
   type,
   onChange,
   value,
+  link,
   children,
   required = false
 }) {
   return(
     <div>
-      <label htmlFor={labelId} className="block text-sm/6 font-medium text-gray-900">
-        {children}
-      </label>
+      <div className="flex justify-between align-center">
+        <label htmlFor={labelId} className="block text-sm/6 font-medium text-gray-900">
+          {children}
+        </label>
+        {link && (
+          <div className="text-sm">
+            <Link
+                  className='font-semibold text-indigo-600 hover:text-indigo-500'
+                  href={link.linkUrl}
+            >
+              {link.linkText}
+            </Link>
+          </div>
+        )}
+      </div>
       <div className="mt-2">
         <input
           id={labelId}

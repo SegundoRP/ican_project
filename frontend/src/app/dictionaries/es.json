@@ -286,5 +286,16 @@
     "Loading": "Cargando",
     "AccountActivated": "Cuenta activada",
     "AccountFailed": "Falló activar la cuenta"
+  },
+
+  "LoginPage": {
+    "Title": "Ingresa a tu cuenta",
+    "ForgotPassword": "¿Olvidaste la contraseña?",
+    "LinkUrl": "/password-reset",
+    "Form": {
+      "Button": "Iniciar sesión",
+      "Register": "Crea una cuenta",
+      "DontHaveAnAccount": "¿No tienes una cuenta?"
+    }
   }
 }
