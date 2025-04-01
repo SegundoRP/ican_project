@@ -53,7 +53,6 @@ export default function RegisterForm({dictionary}) {
       value: re_password,
       required: true,
     },
-    
   ]
 
   return(
