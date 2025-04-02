@@ -2,8 +2,9 @@
   "LandingPage": {
     "Navbar": {
       "Buttons": {
-        "Login": "Iniciar Sesion",
-        "Register": "Registrate"
+        "Login": "Iniciar Sesión",
+        "Register": "Regístrate",
+        "Logout": "Cerrar Sesión"
       },
       "Menu": {
         "Home": "Inicio",
