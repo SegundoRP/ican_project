@@ -1,6 +1,31 @@
-import Link from "next/link";
+'use client'
 
-export default function navbar({dict}) {
+import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks'
+import { useLogoutMutation } from '@/redux/features/authApiSlice';
+import { logout as setLogout } from "@/redux/features/authSlice";
+
+export default function Navbar({dict}) {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [logout] = useLogoutMutation();
+  const { isAuthenticated } = useAppSelector(state => state.auth);
+
+  const handleLogout = () => {
+    logout(undefined)
+      .unwrap
+      .then(() => {
+        dispatch(setLogout());
+      })
+      .finally(() => {
+        router.push('/');
+      })
+  };
+
+  const authLinks = ( <div>Auth links</div> )
+  const guestLinks = ( <div>Auth links</div> )
+
   return (
     <header className="grid bg-gray-900 px-1 py-4 sm:p-10 sticky top-0">
       <div className="flex justify-around sm:justify-between sm:gap-3 items-center text-center">
@@ -18,6 +43,7 @@ export default function navbar({dict}) {
               className="relative border-b-2 border-gray-100 text-md sm:text-lg"
             >
               {dict.Navbar.Buttons.Login}
+              {isAuthenticated ? authLinks : guestLinks}
             </Link>
           </button>
           <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200">
@@ -27,6 +53,7 @@ export default function navbar({dict}) {
               className="relative border-b-2 border-gray-100 text-md text-center sm:text-lg"
             >
               {dict.Navbar.Buttons.Register}
+              {isAuthenticated ? authLinks : guestLinks}
             </Link>
           </button>
         </div>
