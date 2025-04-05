@@ -1,13 +1,15 @@
 'use client'
 
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks'
 import { useLogoutMutation } from '@/redux/features/authApiSlice';
 import { logout as setLogout } from "@/redux/features/authSlice";
+import { NavLink } from '@/components/common';
 
 export default function Navbar({dict}) {
   const router = useRouter();
+  const pathname = usePathname();
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
   const { isAuthenticated } = useAppSelector(state => state.auth);
@@ -23,8 +25,43 @@ export default function Navbar({dict}) {
       })
   };
 
-  const authLinks = ( <div>Auth links</div> )
-  const guestLinks = ( <div>Auth links</div> )
+  const isSelected = (path) => pathname === path ? true : false;
+  const authLinks = (isMobile) => (
+    <>
+      <NavLink
+        isSelected={isSelected('/dashboard')}
+        isMobile={isMobile}
+        href='/dashboard'
+      >
+        Dashboard
+      </NavLink>
+
+      <NavLink
+        isMobile={isMobile} onClick={handleLogout}
+      >
+        Logout
+      </NavLink>
+    </>
+  );
+  const guestLinks = (isMobile) => (
+    <>
+      <NavLink
+        isSelected={isSelected('/auth/login')}
+        isMobile={isMobile}
+        href='/auth/login'
+      >
+        Login
+      </NavLink>
+
+      <NavLink
+        isSelected={isSelected('/auth/register')}
+        isMobile={isMobile}
+        href='/auth/register'
+      >
+        Register
+      </NavLink>
+    </>
+  );
 
   return (
     <header className="grid bg-gray-900 px-1 py-4 sm:p-10 sticky top-0">
@@ -43,7 +80,7 @@ export default function Navbar({dict}) {
               className="relative border-b-2 border-gray-100 text-md sm:text-lg"
             >
               {dict.Navbar.Buttons.Login}
-              {isAuthenticated ? authLinks : guestLinks}
+              {isAuthenticated ? authLinks(false) : guestLinks(false)}
             </Link>
           </button>
           <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200">
@@ -53,7 +90,7 @@ export default function Navbar({dict}) {
               className="relative border-b-2 border-gray-100 text-md text-center sm:text-lg"
             >
               {dict.Navbar.Buttons.Register}
-              {isAuthenticated ? authLinks : guestLinks}
+              {isAuthenticated ? authLinks(true) : guestLinks(true)}
             </Link>
           </button>
         </div>
