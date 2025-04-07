@@ -50,7 +50,7 @@ export default function Navbar({dict}) {
         isMobile={isMobile}
         href='/auth/login'
       >
-        Login
+        {dict.Navbar.Buttons.Login}
       </NavLink>
 
       <NavLink
