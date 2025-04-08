@@ -9,7 +9,6 @@ import { NavLink } from '@/components/common';
 
 export default function Navbar({dict, lang}) {
   const router = useRouter();
-  console.log(lang)
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
@@ -37,7 +36,7 @@ export default function Navbar({dict, lang}) {
         <NavLink
           isSelected={isSelected('/dashboard')}
           isMobile={isMobile}
-          href='/dashboard'
+          href={`/${lang}/dashboard`}
         >
           {dict.Navbar.Buttons.Dashboard}
         </NavLink>
@@ -66,7 +65,7 @@ export default function Navbar({dict, lang}) {
         <NavLink
           isSelected={isSelected(`/${lang}/auth/login`)}
           isMobile={isMobile}
-          href='/auth/login'
+          href={`/${lang}/auth/login`}
         >
           {dict.Navbar.Buttons.Login}
         </NavLink>
@@ -80,7 +79,7 @@ export default function Navbar({dict, lang}) {
         <NavLink
           isSelected={isSelected(`/${lang}/auth/register`)}
           isMobile={isMobile}
-          href='/auth/register'
+          href={`/${lang}/auth/register`}
         >
           {dict.Navbar.Buttons.Register}
         </NavLink>
