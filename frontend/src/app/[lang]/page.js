@@ -21,7 +21,7 @@ export default async function Home({params}) {
 
   return (
     <main className="">
-      <Navbar dict={dictionaryLanding}/>
+      <Navbar dict={dictionaryLanding} lang={lang}/>
       <Introduccion dict={dictionaryLanding}/>
       <Servicios dict={dictionaryLanding}/>
       <Nosotros dict={dictionaryLanding}/>

@@ -11,7 +11,7 @@ export default function NavLink({
 }) {
   const className = cn(
     rest.className,
-    'text-white rounded-md px-3 py-2 font-medium',
+    'relative border-b-2 border-gray-100 text-md sm:text-lg',
     {
       'bg-gray-900': isSelected,
       'text-gray-300 hover:bg-gray-700 hover:text-white': !isSelected && !isBanner,

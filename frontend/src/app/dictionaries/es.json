@@ -4,7 +4,8 @@
       "Buttons": {
         "Login": "Iniciar Sesión",
         "Register": "Regístrate",
-        "Logout": "Cerrar Sesión"
+        "Logout": "Cerrar Sesión",
+        "Dashboard": "Dashboard"
       },
       "Menu": {
         "Home": "Inicio",

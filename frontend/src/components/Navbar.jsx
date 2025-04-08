@@ -7,8 +7,9 @@ import { useLogoutMutation } from '@/redux/features/authApiSlice';
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { NavLink } from '@/components/common';
 
-export default function Navbar({dict}) {
+export default function Navbar({dict, lang}) {
   const router = useRouter();
+  console.log(lang)
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
@@ -25,41 +26,65 @@ export default function Navbar({dict}) {
       })
   };
 
-  const isSelected = (path) => pathname === path ? true : false;
+  const isSelected = (path) => pathname === path;
   const authLinks = (isMobile) => (
     <>
-      <NavLink
-        isSelected={isSelected('/dashboard')}
-        isMobile={isMobile}
-        href='/dashboard'
+      <button
+        role="link"
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200"
       >
-        Dashboard
-      </NavLink>
+        <span className="absolute h-0 w-0 rounded-full bg-blue-600 transition-all duration-300 group-hover:h-56 group-hover:w-full"></span>
+        <NavLink
+          isSelected={isSelected('/dashboard')}
+          isMobile={isMobile}
+          href='/dashboard'
+        >
+          {dict.Navbar.Buttons.Dashboard}
+        </NavLink>
+      </button>
 
-      <NavLink
-        isMobile={isMobile} onClick={handleLogout}
+      <button
+        role="link"
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200"
       >
-        Logout
-      </NavLink>
+        <span className="absolute h-0 w-0 rounded-full bg-green-600 transition-all duration-300 group-hover:h-56 group-hover:w-full"></span>
+        <NavLink
+          isMobile={isMobile} onClick={handleLogout}
+        >
+          {dict.Navbar.Buttons.Logout}
+        </NavLink>
+      </button>
     </>
   );
   const guestLinks = (isMobile) => (
     <>
-      <NavLink
-        isSelected={isSelected('/auth/login')}
-        isMobile={isMobile}
-        href='/auth/login'
+      <button
+        role="link"
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200"
       >
-        {dict.Navbar.Buttons.Login}
-      </NavLink>
+        <span className="absolute h-0 w-0 rounded-full bg-blue-600 transition-all duration-300 group-hover:h-56 group-hover:w-full"></span>
+        <NavLink
+          isSelected={isSelected(`/${lang}/auth/login`)}
+          isMobile={isMobile}
+          href='/auth/login'
+        >
+          {dict.Navbar.Buttons.Login}
+        </NavLink>
+      </button>
 
-      <NavLink
-        isSelected={isSelected('/auth/register')}
-        isMobile={isMobile}
-        href='/auth/register'
+      <button
+        role="link"
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200"
       >
-        Register
-      </NavLink>
+        <span className="absolute h-0 w-0 rounded-full bg-green-600 transition-all duration-300 group-hover:h-56 group-hover:w-full"></span>
+        <NavLink
+          isSelected={isSelected(`/${lang}/auth/register`)}
+          isMobile={isMobile}
+          href='/auth/register'
+        >
+          {dict.Navbar.Buttons.Register}
+        </NavLink>
+      </button>
     </>
   );
 
@@ -70,29 +95,11 @@ export default function Navbar({dict}) {
           <h2 className="text-yellow-300 text-4xl font-bold">Logo</h2>
         </div>
         <div className="">
-          <button
-            role="link"
-            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200"
-          >
-            <span className="absolute h-0 w-0 rounded-full bg-blue-600 transition-all duration-300 group-hover:h-56 group-hover:w-full"></span>
-            <Link
-              href="/dashboard"
-              className="relative border-b-2 border-gray-100 text-md sm:text-lg"
-            >
-              {dict.Navbar.Buttons.Login}
-              {isAuthenticated ? authLinks(false) : guestLinks(false)}
-            </Link>
-          </button>
-          <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 sm:px-6 font-semibold text-gray-200">
-            <span className="absolute h-0 w-0 rounded-full bg-green-600 transition-all duration-300 group-hover:h-56 group-hover:w-full"></span>
-            <Link
-              href="#"
-              className="relative border-b-2 border-gray-100 text-md text-center sm:text-lg"
-            >
-              {dict.Navbar.Buttons.Register}
-              {isAuthenticated ? authLinks(true) : guestLinks(true)}
-            </Link>
-          </button>
+          {isAuthenticated ? authLinks(false) : guestLinks(false)}
+        </div>
+
+        <div className="sm:hidden">
+          {isAuthenticated ? authLinks(true) : guestLinks(true)}
         </div>
       </div>
 
