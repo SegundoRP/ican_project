@@ -6,6 +6,10 @@ import Experiencia from "@/components/Experiencia";
 import Testimonios from "@/components/Testimonios";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "Ican | Inicio",
+  description: "Ican página de inicio"
+}
 
 
 export default async function Home({params}) {
@@ -17,7 +21,7 @@ export default async function Home({params}) {
 
   return (
     <main className="">
-      <Navbar dict={dictionaryLanding}/>
+      <Navbar dict={dictionaryLanding} lang={lang}/>
       <Introduccion dict={dictionaryLanding}/>
       <Servicios dict={dictionaryLanding}/>
       <Nosotros dict={dictionaryLanding}/>

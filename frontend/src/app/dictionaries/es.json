@@ -2,8 +2,10 @@
   "LandingPage": {
     "Navbar": {
       "Buttons": {
-        "Login": "Iniciar Sesion",
-        "Register": "Registrate"
+        "Login": "Iniciar Sesión",
+        "Register": "Regístrate",
+        "Logout": "Cerrar Sesión",
+        "Dashboard": "Dashboard"
       },
       "Menu": {
         "Home": "Inicio",
@@ -286,5 +288,16 @@
     "Loading": "Cargando",
     "AccountActivated": "Cuenta activada",
     "AccountFailed": "Falló activar la cuenta"
+  },
+
+  "LoginPage": {
+    "Title": "Ingresa a tu cuenta",
+    "ForgotPassword": "¿Olvidaste la contraseña?",
+    "LinkUrl": "/password-reset",
+    "Form": {
+      "Button": "Iniciar sesión",
+      "Register": "Crea una cuenta",
+      "DontHaveAnAccount": "¿No tienes una cuenta?"
+    }
   }
 }

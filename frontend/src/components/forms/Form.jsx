@@ -11,6 +11,7 @@ export default function Form({ config, isLoading, btnText, onChange, onSubmit })
           type={input.type}
           onChange={onChange}
           value={input.value}
+          link={input.link}
           required={input.required}
         >
           {input.labelText}
@@ -21,6 +22,7 @@ export default function Form({ config, isLoading, btnText, onChange, onSubmit })
         <button
           type="submit"
           className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          disabled={isLoading}
         >
           {isLoading ? <Spinner sm /> : `${btnText}`}
         </button>
