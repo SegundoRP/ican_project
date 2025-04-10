@@ -299,5 +299,9 @@
       "Register": "Crea una cuenta",
       "DontHaveAnAccount": "¿No tienes una cuenta?"
     }
+  },
+
+  "PasswordReset": {
+    "Reset": "Cambia tu contraseña"
   }
 }
