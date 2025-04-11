@@ -302,6 +302,7 @@
   },
 
   "PasswordReset": {
-    "Reset": "Cambia tu contraseña"
+    "Reset": "Cambia tu contraseña",
+    "RequestPasswordReset": "Solicitar cambio de contraseña"
   }
 }
