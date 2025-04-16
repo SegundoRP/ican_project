@@ -304,5 +304,11 @@
   "PasswordReset": {
     "Reset": "Cambia tu contraseña",
     "RequestPasswordReset": "Solicitar cambio de contraseña"
+  },
+
+  "PasswordResetConfirm": {
+    "NewPassword": "Nueva contraseña",
+    "ConfirmNewPassword": "Confirmar nueva contraseña",
+    "Confirm": "Confirmar"
   }
 }
