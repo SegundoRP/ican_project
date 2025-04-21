@@ -50,7 +50,7 @@ export default function Bienvenido({dictDashboard}) {
               className="flex justify-center"
               language="es-ES"
               labelTodayButton="Hoy"
-              labelClearButton="Limpar"
+              labelClearButton="Limpiar"
               autoHide={false}
               weekStart={1}
             />
