@@ -1,4 +1,5 @@
-import Menu from "@/components/dashboard/menu/Menu"
+import Menu from "@/components/dashboard/menu/Menu";
+import { RequireAuth } from "@/components/utils";
 
 export default async function Layout({ children,params }) {
 
@@ -8,9 +9,9 @@ export default async function Layout({ children,params }) {
   const dictionaryDashboard = dictionary.DashboardPage.Home
 
     return (
-        <main className="">
-            <Menu dictDashboard={dictionaryDashboard}/>
-              {children}
-        </main>
+      <main className="">
+        <RequireAuth>{children}</RequireAuth>
+        <Menu dictDashboard={dictionaryDashboard}/>
+      </main>
     );
   }

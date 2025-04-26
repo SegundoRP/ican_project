@@ -5,13 +5,13 @@ export default function Footer({dict}) {
     <footer className="bg-black text-gray-400 text-center p-4">
       <div className="sm:p-5 sm:px-10 sm:grid grid-cols-2 md:text-start items-center">
         <div className="md:flex md:justify-center">
-          <Image
+          {/* <Image
             src="/logo_footer.webp"
             alt=""
             width={300}
             height={300}
             className="w-full sm:w-auto"
-          />
+          /> */}
         </div>
         <div>
           <h3 className="text-4xl sm:text-5xl font-bold">{dict.Footer.Title}</h3>

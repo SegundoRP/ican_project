@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 
 export default function RequireAuth({children}) {
   const router = useRouter();
-  console.log('app', useAppSelector(state => state.auth))
   const { isLoading, isAuthenticated } = useAppSelector(state => state.auth);
 
   if (isLoading) {
@@ -18,10 +17,13 @@ export default function RequireAuth({children}) {
     );
   }
 
-  // if (!isAuthenticated) {
-  //   toast.error('Must be logged in');
-  //   router.push('/auth/login');
-  // }
+  if (!isAuthenticated) {
+    if (typeof window !== "undefined") {
+      toast.error('Must be logged in');
+      router.push('/auth/login');
+    }
+    return null;
+  }
 
   return <>{children}</>;
 }
