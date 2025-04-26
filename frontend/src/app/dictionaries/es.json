@@ -293,6 +293,7 @@
   "LoginPage": {
     "Title": "Ingresa a tu cuenta",
     "ForgotPassword": "¿Olvidaste la contraseña?",
+    "PleaseLogin": "Por favor ingrese a su sesión",
     "LinkUrl": "/password-reset",
     "Form": {
       "Button": "Iniciar sesión",
