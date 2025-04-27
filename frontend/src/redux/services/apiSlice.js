@@ -23,7 +23,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       const release = await mutex.acquire()
       try {
         const refreshResult = await baseQuery(
-          { url: '/jwt/refresh', method: 'POST' },
+          { url: '/jwt/refresh/', method: 'POST' },
           api,
           extraOptions
         );
