@@ -1,5 +1,6 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
+import { SocialButtons } from '@/components/common';
 import { LoginForm } from '@/components/forms';
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default async function PageLogin({params}) {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <LoginForm dictionary={dictionary} />
+        <SocialButtons />
 
         <p className="mt-10 text-center text-sm/6 text-gray-500">
           {dictionaryLogin.Form.DontHaveAnAccount}{' '}

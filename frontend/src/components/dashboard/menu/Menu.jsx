@@ -9,8 +9,24 @@ import {
   HiOutlineUserGroup,
   HiLogout,
 } from "react-icons/hi";
+import { logout as setLogout } from "@/redux/features/authSlice";
+import { useLogoutMutation } from '@/redux/features/authApiSlice';
+import { useRouter } from 'next/navigation';
+import { useAppDispatch } from '@/redux/hooks'
 
 export default function MenuDashboard({dictDashboard}) {
+  const dispatch = useAppDispatch();
+  const [logout] = useLogoutMutation();
+  const router = useRouter();
+  const handleLogout = () => {
+    logout(undefined)
+      .unwrap()
+      .then(() => {
+        dispatch(setLogout());
+        router.push('/');
+      })
+  };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 justify-between items-center">
       <Navbar fluid={true} rounded={true}>
@@ -47,7 +63,7 @@ export default function MenuDashboard({dictDashboard}) {
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item icon={HiLogout} className="text-red-500">
-            <a href="#">{dictDashboard.Menu.Dropdown.Logout}</a>
+            <a href="#" onClick={handleLogout}>{dictDashboard.Menu.Dropdown.Logout}</a>
           </Dropdown.Item>
         </Dropdown>
       </Navbar>
