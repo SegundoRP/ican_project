@@ -4,9 +4,9 @@ import { useSocialAuthenticateMutation } from "@/redux/features/authApiSlice";
 import { useSocialAuth } from "@/hooks";
 import { Spinner } from "@/components/common";
 
-export default function PageGoogle({params}) {
-  const [googleAuthenticate] = useSocialAuthenticateMutation();
-  useSocialAuth(googleAuthenticate, 'google-oauth2');
+export default function PageFacebook({params}) {
+  const [facebookAuthenticate] = useSocialAuthenticateMutation();
+  useSocialAuth(facebookAuthenticate, 'facebook');
 
   return (
     <div className="my-8">

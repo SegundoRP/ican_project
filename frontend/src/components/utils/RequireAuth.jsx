@@ -19,7 +19,6 @@ export default function RequireAuth({children}) {
 
   if (!isAuthenticated) {
     if (typeof window !== "undefined") {
-      toast.error('Must be logged in');
       router.push('/auth/login');
     }
     return null;

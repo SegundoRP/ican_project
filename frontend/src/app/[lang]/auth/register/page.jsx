@@ -1,5 +1,6 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
+import { SocialButtons } from '@/components/common';
 import { RegisterForm } from '@/components/forms';
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default async function PageRegister({params}) {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <RegisterForm dictionary={dictionaryRegister} />
+          <SocialButtons />
 
           <p className="mt-10 text-center text-sm/6 text-gray-500">
             {dictionaryRegister.Form.AlreadyHaveAccount}{' '}
