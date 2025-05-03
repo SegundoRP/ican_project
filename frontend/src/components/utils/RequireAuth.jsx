@@ -1,12 +1,10 @@
 'use client';
 
 import { useAppSelector } from "@/redux/hooks";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Spinner } from "@/components/common";
-import { toast } from "react-toastify";
 
 export default function RequireAuth({children}) {
-  const router = useRouter();
   const { isLoading, isAuthenticated } = useAppSelector(state => state.auth);
 
   if (isLoading) {
@@ -19,7 +17,7 @@ export default function RequireAuth({children}) {
 
   if (!isAuthenticated) {
     if (typeof window !== "undefined") {
-      router.push('/auth/login');
+      redirect('/auth/login');
     }
     return null;
   }
