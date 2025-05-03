@@ -3,24 +3,16 @@
 import { Avatar, Datepicker } from "flowbite-react";
 import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
 import { Spinner } from "@/components/common";
-import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 
 export default function Bienvenido({dictDashboard}) {
-  const router = useRouter();
-  const { data: user, isLoading, isError } = useRetrieveUserQuery();
+  const { data: user, isLoading, isFetching } = useRetrieveUserQuery();
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <div className="flex justify-center my-8">
         <Spinner lg />
       </div>
     )
-  }
-
-  if (isError) {
-    router.push('/auth/login');
-    toast.error('Please log in')
   }
 
   return (
