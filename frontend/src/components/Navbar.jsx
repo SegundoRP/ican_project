@@ -19,8 +19,6 @@ export default function Navbar({dict, lang}) {
       .unwrap
       .then(() => {
         dispatch(setLogout());
-      })
-      .finally(() => {
         router.push('/');
       })
   };
