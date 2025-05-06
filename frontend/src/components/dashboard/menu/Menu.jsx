@@ -18,13 +18,14 @@ export default function MenuDashboard({dictDashboard}) {
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
   const router = useRouter();
-  const handleLogout = () => {
-    logout(undefined)
-      .unwrap()
-      .then(() => {
-        dispatch(setLogout());
-        router.push('/');
-      })
+  const handleLogout = async () => {
+    try {
+      await logout().unwrap();
+      dispatch(setLogout());
+      router.push('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
   };
 
   return (
@@ -53,17 +54,17 @@ export default function MenuDashboard({dictDashboard}) {
             </span>
           </Dropdown.Header>
           <Dropdown.Item icon={HiOutlineChartBar} href="/dashboard">
-            <a href="/dashboard">{dictDashboard.Menu.Dropdown.Dashboard}</a>
+            {dictDashboard.Menu.Dropdown.Dashboard}
           </Dropdown.Item>
           <Dropdown.Item icon={HiOutlineShoppingCart} href="/dashboard/ordenes">
-            <a href="/dashboard/ordenes">{dictDashboard.Menu.Dropdown.Orders}</a>
+            {dictDashboard.Menu.Dropdown.Orders}
           </Dropdown.Item>
           <Dropdown.Item icon={HiOutlineUserGroup} href="/dashboard/repartidevs">
-            <a href="/dashboard/repartidevs">{dictDashboard.Menu.Dropdown.Repartidevs}</a>
+            {dictDashboard.Menu.Dropdown.Repartidevs}
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item icon={HiLogout} className="text-red-500">
-            <a href="#" onClick={handleLogout}>{dictDashboard.Menu.Dropdown.Logout}</a>
+          <Dropdown.Item icon={HiLogout} className="text-red-500" onClick={handleLogout}>
+            {dictDashboard.Menu.Dropdown.Logout}
           </Dropdown.Item>
         </Dropdown>
       </Navbar>
