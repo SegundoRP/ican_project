@@ -1,5 +1,7 @@
 import { PasswordResetForm } from '@/components/forms';
 import Image from 'next/image';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: 'Ican | Cambio de contraseña',
@@ -13,8 +15,9 @@ export default async function pageRequestPasswordReset({params}) {
   .then((m) => m.default)
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className="flex min-h-full flex-1 flex-col justify-center">
+      <Navbar dict={dictionary.LandingPage} lang={lang}/>
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm px-6 py-8 lg:px-8">
         {/* <Image
           alt="Your Company"
           src=""
@@ -27,9 +30,10 @@ export default async function pageRequestPasswordReset({params}) {
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm px-6 py-8 lg:px-8">
         <PasswordResetForm dictionary={dictionary} />
       </div>
+      <Footer dict={dictionary.LandingPage}/>
     </div>
   );
 }

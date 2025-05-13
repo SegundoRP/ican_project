@@ -20,7 +20,7 @@ export default async function Home({params}) {
   const dictionaryLanding = dictionary.LandingPage
 
   return (
-    <main className="">
+    <main>
       <Navbar dict={dictionaryLanding} lang={lang}/>
       <Introduccion dict={dictionaryLanding}/>
       <Servicios dict={dictionaryLanding}/>

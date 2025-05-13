@@ -1,8 +1,6 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Provider from "@/redux/provider";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Setup } from "@/components/utils";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,11 +21,9 @@ export default async function RootLayout({ children, params }) {
       <body className={inter.className}>
         <Provider>
           <Setup />
-          <Navbar dict={dictionaryLanding} lang={lang}/>
-          <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8'>
+          <div>
             {children}
           </div>
-          <Footer dict={dictionaryLanding}/>
         </Provider>
       </body>
     </html>
