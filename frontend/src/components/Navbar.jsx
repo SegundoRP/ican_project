@@ -48,7 +48,7 @@ export default function Navbar({dict, lang}) {
         <NavLink
           isMobile={isMobile} onClick={handleLogout}
         >
-          {dict.Navbar.Buttons.Logout}dd
+          {dict.Navbar.Buttons.Logout}
         </NavLink>
       </button>
     </>

@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SocialButtons } from '@/components/common';
 import { LoginForm } from '@/components/forms';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Ican | Inicio de sesión",
@@ -16,7 +18,8 @@ export default async function PageLogin({params}) {
   const dictionaryLogin = dictionary.LoginPage;
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex min-h-full flex-1 flex-col justify-center">
+      <Navbar dict={dictionary.LandingPage} lang={lang}/>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         {/* <Image
           alt="Your Company"
@@ -42,6 +45,7 @@ export default async function PageLogin({params}) {
           </Link>
         </p>
       </div>
+      <Footer dict={dictionary.LandingPage}/>
     </div>
   );
 }
