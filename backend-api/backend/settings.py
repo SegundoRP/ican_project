@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'social_django',
     'users',
     'condominiums',
+    'services',
 ]
 
 MIDDLEWARE = [
