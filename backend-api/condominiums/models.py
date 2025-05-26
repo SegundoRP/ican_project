@@ -11,7 +11,7 @@ class Condominium(models.Model):
         return self.name
 
 class Department(models.Model):
-    condominium = models.ForeignKey(Condominium, on_delete=models.CASCADE)
+    condominium = models.ForeignKey(Condominium, on_delete=models.CASCADE, related_name="departments")
     name = models.CharField(max_length=255)
     tower = models.CharField(max_length=255)
     floor = models.IntegerField()

@@ -40,7 +40,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
         choices=UserRole.choices,
         default=UserRole.RECEIVER
     )
-    department = models.ForeignKey('condominiums.Department', on_delete=models.SET_NULL, null=True, blank=True)
+    department = models.ForeignKey('condominiums.Department', on_delete=models.SET_NULL, null=True, blank=True, related_name="users")
 
     # This allow to use User.objects with .get, .filter, .create_user,
     # use methods in UserAccountManager etc
