@@ -2,7 +2,7 @@ from rest_framework.permissions import BasePermission
 from users.models import UserAccount
 
 class IsDeliverer(BasePermission):
-    def has_permission(self, request):
+    def has_permission(self, request, _view):
         if not request.user.is_authenticated:
             return False
         
