@@ -17,6 +17,14 @@ class TypeOfService(models.Model):
         return f"{self.name} - {self.category}"
     
 class Service(models.Model):
+    class ServiceStatus(models.IntegerChoices):
+        ACTIVE = 1, _('Activo')
+        INACTIVE = 2, _('Inactivo')
+    
+    status = models.IntegerField(
+        choices=ServiceStatus.choices,
+        default=ServiceStatus.ACTIVE
+    )
     type_of_service = models.ForeignKey(TypeOfService, on_delete=models.CASCADE, related_name="services")
     user = models.ForeignKey('users.UserAccount', on_delete=models.CASCADE, related_name="services")
     
@@ -76,6 +84,7 @@ class Review(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="reviews")
     rating = models.IntegerField()
     comment = models.TextField()
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="reviews")
     
     def __str__(self):
         return f"Review {self.id} - {self.user.email} - {self.order.id}"
