@@ -47,20 +47,11 @@ class Order(models.Model):
     )
     scheduled_date = models.DateTimeField()
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, blank=True, related_name="orders")
+    user = models.ForeignKey('users.UserAccount', on_delete=models.CASCADE, related_name="orders")
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    receiver = models.ForeignKey('users.UserAccount', on_delete=models.CASCADE, related_name="receiver_orders", verbose_name="Receptor")
-    deliverer = models.ForeignKey('users.UserAccount', on_delete=models.SET_NULL, null=True, blank=True, related_name="deliverer_orders", verbose_name="Repartidor")
     
     def __str__(self):
         return f"Order {self.id} - {self.status} - {self.scheduled_date} - {self.user.email}"
-    
-    def clean(self):
-        if self.deliverer and self.receiver == self.deliverer:
-            raise ValidationError("El receptor y el repartidor no pueden ser el mismo usuario.")
-        
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        super().save(*args, **kwargs)
     
 class Payment(models.Model):
     class PaymentStatus(models.IntegerChoices):
