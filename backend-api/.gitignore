@@ -6,3 +6,6 @@ db.sqlite3
 *.env
 .vscode
 *.swp
+
+# Documentation about the code
+docs/diagnostic
