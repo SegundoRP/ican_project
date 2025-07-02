@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from users.models import UserAccount
-from .models import Service
+from .models import Service, Order
 
 class ServiceSerializer(serializers.ModelSerializer):
     type_of_service_name = serializers.ReadOnlyField(source='type_of_service.name')

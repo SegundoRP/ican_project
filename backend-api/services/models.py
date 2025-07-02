@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
 
 class TypeOfService(models.Model):
     class ServiceType(models.IntegerChoices):
@@ -52,7 +53,7 @@ class Order(models.Model):
     deliverer = models.ForeignKey('users.UserAccount', on_delete=models.SET_NULL, null=True, blank=True, related_name="deliverer_orders", verbose_name="Repartidor")
 
     def __str__(self):
-        return f"Order {self.id} - {self.status} - {self.scheduled_date} - {self.user.email}"
+        return f"Order {self.id} - {self.status} - {self.scheduled_date} - {self.receiver.email}"
 
     def clean(self):
         if self.deliverer and self.receiver == self.deliverer:
