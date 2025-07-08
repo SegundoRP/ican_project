@@ -51,3 +51,15 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}".strip()
+
+    def get_short_name(self):
+        return self.first_name
+
+    @property
+    def is_available(self):
+        """Check if user is available for delivery"""
+        return (self.is_available_for_delivery and
+                self.role in [self.UserRole.DELIVERER, self.UserRole.RECEIVER_AND_DELIVERER])
