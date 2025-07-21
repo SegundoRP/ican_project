@@ -12,6 +12,7 @@ from rest_framework_simplejwt.views import (
 from backend.permissions import IsOwner
 from .models import UserAccount
 from .serializers import UserAccountSerializer
+from services.availability import AvailabilityService
 
 class CustomProviderAuthView(ProviderAuthView):
     def post(self, request, *args, **kwargs):
@@ -158,20 +159,15 @@ class UserAccountViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def toggle_availability(self, request):
         """Toggle delivery availability for deliverer users"""
-        user = request.user
+        success, message = AvailabilityService.toggle_deliverer_availability(request.user)
 
-        # Check if user has deliverer role
-        if user.role not in [UserAccount.UserRole.DELIVERER,
-                           UserAccount.UserRole.RECEIVER_AND_DELIVERER]:
+        if not success:
             return Response(
-                {"error": "Solo los repartidores pueden cambiar su disponibilidad"},
-                status=status.HTTP_403_FORBIDDEN
+                {"error": message},
+                status=status.HTTP_400_BAD_REQUEST
             )
 
-        user.is_available_for_delivery = not user.is_available_for_delivery
-        user.save()
-
         return Response({
-            "is_available_for_delivery": user.is_available_for_delivery,
-            "message": f"Disponibilidad {'activada' if user.is_available_for_delivery else 'desactivada'}"
+            "is_available_for_delivery": request.user.is_available_for_delivery,
+            "message": message
         })
