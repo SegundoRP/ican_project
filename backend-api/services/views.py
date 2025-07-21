@@ -10,6 +10,8 @@ from .serializers import (
     PaymentSerializer, ReviewSerializer
 )
 from .permissions import IsDeliverer
+from .assignment import OrderAssignmentService
+from .availability import AvailabilityService
 from backend.permissions import (
     IsOwner, IsReceiver, IsDeliverer as IsDelivererRole,
     IsOrderParticipant, IsReceiverOfOrder, IsDelivererOfOrder
@@ -89,26 +91,29 @@ class OrderViewSet(viewsets.ModelViewSet):
         return [permissions.IsAuthenticated()]
 
     def perform_create(self, serializer):
-        # Auto-assign available deliverer from same condominium
+        # Validate receiver has proper setup
         receiver = self.request.user
 
-        # Find available deliverers in the same condominium
-        if receiver.department and receiver.department.condominium:
-            from django.db.models import Q
-            available_deliverers = UserAccount.objects.filter(
-                Q(role=UserAccount.UserRole.DELIVERER) |
-                Q(role=UserAccount.UserRole.RECEIVER_AND_DELIVERER),
-                is_available_for_delivery=True,
-                department__condominium=receiver.department.condominium
-            ).exclude(id=receiver.id)
+        if not receiver.department:
+            raise serializers.ValidationError(
+                "Debes tener un departamento asignado para crear órdenes"
+            )
 
-            # Simple assignment: get the first available deliverer
-            # TODO: Implement fair distribution algorithm
-            deliverer = available_deliverers.first()
+        if not receiver.department.condominium:
+            raise serializers.ValidationError(
+                "Tu departamento debe estar asociado a un condominio"
+            )
 
-            serializer.save(receiver=receiver, deliverer=deliverer)
-        else:
-            serializer.save(receiver=receiver)
+        # Save order first
+        order = serializer.save(receiver=receiver)
+
+        # Use assignment service for fair distribution
+        assigned_deliverer = OrderAssignmentService.assign_order_to_deliverer(order)
+
+        if not assigned_deliverer:
+            # No deliverers available - order stays pending without deliverer
+            order.status = Order.OrderStatus.PENDING
+            order.save()
 
     @action(detail=True, methods=['post'])
     def accept_order(self, request, pk=None):
@@ -150,14 +155,19 @@ class OrderViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Remove deliverer and set back to pending for reassignment
-        order.deliverer = None
-        order.status = Order.OrderStatus.PENDING
-        order.save()
+        # Use assignment service to reassign
+        new_deliverer = OrderAssignmentService.reassign_order(order)
 
-        # TODO: Implement reassignment logic
+        if new_deliverer:
+            message = f"Orden reasignada a {new_deliverer.get_full_name()}"
+        else:
+            message = "Orden rechazada. No hay repartidores disponibles en este momento"
 
-        return Response({"message": "Orden rechazada y pendiente de reasignación"})
+        serializer = self.get_serializer(order)
+        return Response({
+            "message": message,
+            "order": serializer.data
+        })
 
     @action(detail=True, methods=['post'])
     def complete_order(self, request, pk=None):
@@ -218,6 +228,44 @@ class OrderViewSet(viewsets.ModelViewSet):
         orders = self.get_queryset().filter(receiver=request.user)
         serializer = self.get_serializer(orders, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'])
+    def check_availability(self, request):
+        """Check deliverer availability in user's condominium"""
+        user = request.user
+
+        if not user.department or not user.department.condominium:
+            return Response({
+                "error": "Usuario sin departamento o condominio asignado"
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        condominium = user.department.condominium
+
+        # Get available deliverers count
+        available_deliverers = OrderAssignmentService.get_available_deliverers(
+            condominium, exclude_user=user
+        )
+
+        # Check immediate delivery availability
+        immediate_available = AvailabilityService.is_immediate_delivery_available(
+            condominium, exclude_user=user
+        )
+
+        # Get today's time slots
+        from datetime import date
+        time_slots = AvailabilityService.get_available_time_slots(
+            condominium, date.today(), exclude_user=user
+        )
+
+        return Response({
+            "condominium": {
+                "id": condominium.id,
+                "name": condominium.name
+            },
+            "available_deliverers_count": available_deliverers.count(),
+            "immediate_delivery_available": immediate_available,
+            "time_slots_today": time_slots[:6]  # Next 6 available slots
+        })
 
 
 class PaymentViewSet(viewsets.ModelViewSet):

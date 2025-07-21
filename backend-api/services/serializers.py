@@ -28,10 +28,12 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'service', 'service_info', 'status', 'status_display',
-                  'scheduled_date', 'amount', 'receiver', 'receiver_name',
-                  'receiver_email', 'deliverer', 'deliverer_name', 'deliverer_email']
+                  'scheduled_date', 'is_immediate', 'delivery_notes', 'amount',
+                  'receiver', 'receiver_name', 'receiver_email', 'deliverer',
+                  'deliverer_name', 'deliverer_email', 'created_at', 'updated_at']
         read_only_fields = ['id', 'status_display', 'receiver_name', 'receiver_email',
-                           'deliverer_name', 'deliverer_email', 'service_info']
+                           'deliverer_name', 'deliverer_email', 'service_info',
+                           'created_at', 'updated_at']
 
     def get_service_info(self, obj):
         if obj.service:
@@ -48,12 +50,25 @@ class OrderSerializer(serializers.ModelSerializer):
         if self.instance is None:  # Creating
             data['receiver'] = self.context['request'].user
 
-        # Validate scheduled_date is in the future
-        import datetime
         from django.utils import timezone
-        if data.get('scheduled_date'):
-            if data['scheduled_date'] < timezone.now():
-                raise serializers.ValidationError("La fecha programada debe ser futura.")
+        from datetime import timedelta
+
+        # Handle immediate vs scheduled delivery
+        if data.get('is_immediate', False):
+            # For immediate delivery, set scheduled_date to 30 minutes from now
+            data['scheduled_date'] = timezone.now() + timedelta(minutes=30)
+        else:
+            # Validate scheduled_date is in the future
+            if data.get('scheduled_date'):
+                if data['scheduled_date'] < timezone.now():
+                    raise serializers.ValidationError("La fecha programada debe ser futura.")
+
+                # Ensure scheduled date is at least 1 hour in the future
+                min_future_time = timezone.now() + timedelta(hours=1)
+                if data['scheduled_date'] < min_future_time:
+                    raise serializers.ValidationError(
+                        "La entrega programada debe ser al menos 1 hora en el futuro."
+                    )
 
         return data
 
