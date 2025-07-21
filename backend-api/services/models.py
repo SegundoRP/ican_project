@@ -47,6 +47,10 @@ class Order(models.Model):
         default=OrderStatus.PENDING
     )
     scheduled_date = models.DateTimeField()
+    is_immediate = models.BooleanField(default=False, verbose_name="Entrega inmediata")
+    delivery_notes = models.TextField(blank=True, verbose_name="Notas de entrega")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, blank=True, related_name="orders")
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     receiver = models.ForeignKey('users.UserAccount', on_delete=models.CASCADE, related_name="receiver_orders", verbose_name="Receptor")
