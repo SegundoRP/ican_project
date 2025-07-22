@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Avg, Count
 from django.shortcuts import get_object_or_404
-from users.models import UserAccount
 from .models import Service, TypeOfService, Order, Payment, Review
 from .serializers import (
     ServiceSerializer, TypeOfServiceSerializer, OrderSerializer,
@@ -14,7 +13,7 @@ from .assignment import OrderAssignmentService
 from .availability import AvailabilityService
 from backend.permissions import (
     IsOwner, IsReceiver, IsDeliverer as IsDelivererRole,
-    IsOrderParticipant, IsReceiverOfOrder, IsDelivererOfOrder
+    IsOrderParticipant, IsReceiverOfOrder
 )
 
 class ServiceViewSet(viewsets.GenericViewSet):
@@ -72,14 +71,41 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        if user.is_staff:
-            return Order.objects.all()
+        queryset = Order.objects.all()
 
-        # Filter orders based on user role
-        from django.db.models import Q
-        return Order.objects.filter(
-            Q(receiver=user) | Q(deliverer=user)
-        )
+        # Non-staff users only see their orders
+        if not user.is_staff:
+            from django.db.models import Q
+            queryset = queryset.filter(
+                Q(receiver=user) | Q(deliverer=user)
+            )
+
+        # Apply filters from query parameters
+        status = self.request.query_params.get('status', None)
+        condominium_id = self.request.query_params.get('condominium', None)
+        date_from = self.request.query_params.get('date_from', None)
+        date_to = self.request.query_params.get('date_to', None)
+        is_immediate = self.request.query_params.get('is_immediate', None)
+
+        if status:
+            queryset = queryset.filter(status=status)
+
+        if condominium_id:
+            queryset = queryset.filter(
+                receiver__department__condominium_id=condominium_id
+            )
+
+        if date_from:
+            queryset = queryset.filter(scheduled_date__gte=date_from)
+
+        if date_to:
+            queryset = queryset.filter(scheduled_date__lte=date_to)
+
+        if is_immediate is not None:
+            queryset = queryset.filter(is_immediate=is_immediate.lower() == 'true')
+
+        # Default ordering
+        return queryset.order_by('-created_at')
 
     def get_permissions(self):
         if self.action == 'create':
@@ -217,17 +243,102 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def my_deliveries(self, request):
-        """Get orders where user is the deliverer"""
+        """Get orders where user is the deliverer with statistics"""
+        # Get filter parameters
+        status = request.query_params.get('status', None)
+        date_from = request.query_params.get('date_from', None)
+        date_to = request.query_params.get('date_to', None)
+
+        # Base query
         orders = self.get_queryset().filter(deliverer=request.user)
+
+        # Apply filters
+        if status:
+            orders = orders.filter(status=status)
+        if date_from:
+            orders = orders.filter(scheduled_date__gte=date_from)
+        if date_to:
+            orders = orders.filter(scheduled_date__lte=date_to)
+
+        # Order by date
+        orders = orders.order_by('-scheduled_date')
+
+        # Calculate statistics
+        from django.db.models import Sum, Count, Q
+        stats = orders.aggregate(
+            total_orders=Count('id'),
+            completed_orders=Count('id', filter=Q(status=Order.OrderStatus.COMPLETED)),
+            pending_orders=Count('id', filter=Q(status=Order.OrderStatus.PENDING)),
+            accepted_orders=Count('id', filter=Q(status=Order.OrderStatus.ACCEPTED)),
+            total_earnings=Sum('amount', filter=Q(status=Order.OrderStatus.COMPLETED)) or 0
+        )
+
+        # Calculate average rating
+        avg_rating = Review.objects.filter(
+            order__deliverer=request.user,
+            order__status=Order.OrderStatus.COMPLETED
+        ).aggregate(avg=Avg('rating'))['avg'] or 0
+
         serializer = self.get_serializer(orders, many=True)
-        return Response(serializer.data)
+
+        return Response({
+            'orders': serializer.data,
+            'statistics': {
+                'total_orders': stats['total_orders'],
+                'completed_orders': stats['completed_orders'],
+                'pending_orders': stats['pending_orders'],
+                'accepted_orders': stats['accepted_orders'],
+                'total_earnings': float(stats['total_earnings']) if stats['total_earnings'] else 0,
+                'average_rating': round(avg_rating, 2) if avg_rating else 0,
+                'completion_rate': round((stats['completed_orders'] / stats['total_orders'] * 100), 2) if stats['total_orders'] > 0 else 0
+            }
+        })
 
     @action(detail=False, methods=['get'])
     def my_requests(self, request):
-        """Get orders where user is the receiver"""
+        """Get orders where user is the receiver with statistics"""
+        # Get filter parameters
+        status = request.query_params.get('status', None)
+        date_from = request.query_params.get('date_from', None)
+        date_to = request.query_params.get('date_to', None)
+
+        # Base query
         orders = self.get_queryset().filter(receiver=request.user)
+
+        # Apply filters
+        if status:
+            orders = orders.filter(status=status)
+        if date_from:
+            orders = orders.filter(scheduled_date__gte=date_from)
+        if date_to:
+            orders = orders.filter(scheduled_date__lte=date_to)
+
+        # Order by date
+        orders = orders.order_by('-scheduled_date')
+
+        # Calculate statistics
+        from django.db.models import Sum, Count, Q
+        stats = orders.aggregate(
+            total_orders=Count('id'),
+            completed_orders=Count('id', filter=Q(status=Order.OrderStatus.COMPLETED)),
+            pending_orders=Count('id', filter=Q(status=Order.OrderStatus.PENDING)),
+            cancelled_orders=Count('id', filter=Q(status=Order.OrderStatus.CANCELLED)),
+            total_spent=Sum('amount', filter=Q(status=Order.OrderStatus.COMPLETED)) or 0
+        )
+
         serializer = self.get_serializer(orders, many=True)
-        return Response(serializer.data)
+
+        return Response({
+            'orders': serializer.data,
+            'statistics': {
+                'total_orders': stats['total_orders'],
+                'completed_orders': stats['completed_orders'],
+                'pending_orders': stats['pending_orders'],
+                'cancelled_orders': stats['cancelled_orders'],
+                'total_spent': float(stats['total_spent']) if stats['total_spent'] else 0,
+                'completion_rate': round((stats['completed_orders'] / stats['total_orders'] * 100), 2) if stats['total_orders'] > 0 else 0
+            }
+        })
 
     @action(detail=False, methods=['get'])
     def check_availability(self, request):
