@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 class TypeOfService(models.Model):
     class ServiceType(models.IntegerChoices):
@@ -13,6 +14,8 @@ class TypeOfService(models.Model):
         choices=ServiceType.choices,
         default=ServiceType.DELIVERY
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.name} - {self.category}"
@@ -28,6 +31,8 @@ class Service(models.Model):
     )
     type_of_service = models.ForeignKey(TypeOfService, on_delete=models.CASCADE, related_name="services")
     user = models.ForeignKey('users.UserAccount', on_delete=models.CASCADE, related_name="services")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.type_of_service.name} - {self.user.email}"
@@ -89,6 +94,8 @@ class Payment(models.Model):
         choices=PaymentMethod.choices,
         default=PaymentMethod.CASH
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Payment {self.id} - {self.status} - {self.amount} - {self.payment_method}"
@@ -99,6 +106,8 @@ class Review(models.Model):
     rating = models.IntegerField()
     comment = models.TextField()
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="reviews")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Review {self.id} - {self.user.email} - {self.order.id}"
