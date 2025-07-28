@@ -5,7 +5,12 @@ from .models import Department, Condominium
 from .serializers import DepartmentSerializer, CondominiumSerializer
 
 class DepartmentViewSet(viewsets.ViewSet):
-    permission_classes = [permissions.IsAuthenticated]
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'destroy']:
+            # Only admin can create/update/delete departments
+            return [permissions.IsAuthenticated(), permissions.IsAdminUser()]
+        # Regular users can view departments
+        return [permissions.IsAuthenticated()]
 
     def create(self, request):
         serializer = DepartmentSerializer(data=request.data)
