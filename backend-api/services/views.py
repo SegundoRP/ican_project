@@ -11,9 +11,10 @@ from .serializers import (
 from .permissions import IsDeliverer
 from .assignment import OrderAssignmentService
 from .availability import AvailabilityService
+from .throttles import OrderCreateRateThrottle
 from backend.permissions import (
     IsOwner, IsReceiver, IsDeliverer as IsDelivererRole,
-    IsOrderParticipant, IsReceiverOfOrder
+    IsOrderParticipant, IsReceiverOfOrder, IsDelivererOfOrder
 )
 
 class ServiceViewSet(viewsets.GenericViewSet):
@@ -67,7 +68,30 @@ class OrderViewSet(viewsets.ModelViewSet):
     """
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
+    def get_throttles(self):
+        if self.action == 'create':
+            # Apply rate limiting to order creation
+            return [OrderCreateRateThrottle()]
+        return super().get_throttles()
+
+    def get_permissions(self):
+        if self.action == 'create':
+            # Only users with receiver role can create orders
+            return [permissions.IsAuthenticated(), IsReceiver()]
+        elif self.action in ['update', 'partial_update', 'destroy']:
+            # Only order owner (receiver) can update/delete
+            return [permissions.IsAuthenticated(), IsReceiverOfOrder()]
+        elif self.action in ['accept_order', 'reject_order', 'complete_order']:
+            # Only assigned deliverer can accept/reject/complete
+            return [permissions.IsAuthenticated(), IsDelivererOfOrder()]
+        elif self.action == 'cancel_order':
+            # Only order owner can cancel
+            return [permissions.IsAuthenticated(), IsReceiverOfOrder()]
+        elif self.action in ['list', 'retrieve', 'my_requests', 'my_deliveries']:
+            # Authenticated users can view orders they're involved in
+            return [permissions.IsAuthenticated()]
+        return [permissions.IsAuthenticated(), IsOrderParticipant()]
 
     def get_queryset(self):
         user = self.request.user
@@ -386,7 +410,19 @@ class PaymentViewSet(viewsets.ModelViewSet):
     """
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
+    def get_permissions(self):
+        if self.action == 'create':
+            # Only order receiver can create payment
+            return [permissions.IsAuthenticated(), IsReceiver()]
+        elif self.action in ['update', 'partial_update', 'destroy']:
+            # Only order receiver can modify payment
+            return [permissions.IsAuthenticated(), IsReceiverOfOrder()]
+        elif self.action == 'verify_payment':
+            # Admin only can verify payments
+            return [permissions.IsAuthenticated(), permissions.IsAdminUser()]
+        # For list and retrieve, check object permissions
+        return [permissions.IsAuthenticated(), IsOrderParticipant()]
 
     def get_queryset(self):
         user = self.request.user
@@ -456,7 +492,16 @@ class ReviewViewSet(viewsets.ModelViewSet):
     """
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
+    def get_permissions(self):
+        if self.action == 'create':
+            # Any authenticated user can create review for orders they participated in
+            return [permissions.IsAuthenticated()]
+        elif self.action in ['update', 'partial_update', 'destroy']:
+            # Only review creator can modify/delete
+            return [permissions.IsAuthenticated(), IsOwner()]
+        # For list and retrieve
+        return [permissions.IsAuthenticated()]
 
     def get_queryset(self):
         user = self.request.user

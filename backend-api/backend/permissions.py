@@ -5,14 +5,12 @@ from users.models import UserAccount
 class IsOwner(permissions.BasePermission):
     """
     Custom permission to only allow owners of an object to edit it.
+    Used for models that have a 'user' field (Review, Service).
     """
     def has_object_permission(self, request, _view, obj):
         # Check if the object has a user attribute
         if hasattr(obj, 'user'):
             return obj.user == request.user
-        # Check if the object has an owner attribute
-        if hasattr(obj, 'owner'):
-            return obj.owner == request.user
         return False
 
 
