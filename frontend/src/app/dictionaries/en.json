@@ -174,8 +174,8 @@
         "Title":"Repartidevs",
         "Link":"View All"
       }
-     } 
-       
+     }
+
      },
 
     "OrdersPage": {
@@ -191,7 +191,7 @@
         "Quantity":220,
         "Indicator":10
       },
-      
+
       "Services":{
         "Title":"Services",
         "Quantity":100,
@@ -246,12 +246,54 @@
           "Quantity":220,
           "Indicator":10
         },
-        
+
         "Services":{
           "Title":"Services",
           "Quantity":100,
           "Indicator":10
         }
+      }
+    },
+
+    "ProfilePage": {
+      "Title": "My Profile",
+      "EditButton": "Edit Profile",
+      "SaveButton": "Save Changes",
+      "CancelButton": "Cancel",
+      "PersonalInfo": {
+        "Title": "Personal Information",
+        "Name": "Name",
+        "Email": "Email",
+        "Phone": "Phone",
+        "Role": "Role",
+        "Condominium": "Condominium",
+        "Department": "Department",
+        "Status": "Account Status",
+        "Verified": "Verified",
+        "Pending": "Pending"
+      },
+      "Stats": {
+        "Title": "Statistics",
+        "ReceiverStats": "Receiver Statistics",
+        "DelivererStats": "Deliverer Statistics",
+        "TotalOrders": "Total Orders",
+        "PendingOrders": "Pending Orders",
+        "CompletedOrders": "Completed Orders",
+        "TotalDeliveries": "Total Deliveries",
+        "TotalEarnings": "Total Earnings",
+        "Rating": "Rating",
+        "Reviews": "reviews",
+        "NoReviews": "No reviews"
+      },
+      "Actions": {
+        "NewOrder": "New Order",
+        "ViewOrders": "View My Orders",
+        "ToggleAvailability": "Toggle Availability",
+        "ViewDeliveries": "View My Deliveries"
+      },
+      "Availability": {
+        "Available": "Available for deliveries",
+        "NotAvailable": "Not available"
       }
     }
   }
