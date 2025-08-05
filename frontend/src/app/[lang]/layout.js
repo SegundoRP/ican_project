@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Provider from "@/redux/provider";
-import { Setup } from "@/components/utils";
+import { Setup, ErrorBoundary } from "@/components/utils";
+import { QueryProvider } from "@/providers/query-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,14 @@ export default async function RootLayout({ children, params }) {
     <html lang={lang}>
       <body className={inter.className}>
         <Provider>
-          <Setup />
-          <div>
-            {children}
-          </div>
+          <QueryProvider>
+            <ErrorBoundary>
+              <Setup />
+              <div>
+                {children}
+              </div>
+            </ErrorBoundary>
+          </QueryProvider>
         </Provider>
       </body>
     </html>
