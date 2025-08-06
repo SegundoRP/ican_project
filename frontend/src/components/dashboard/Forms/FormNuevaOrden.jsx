@@ -1,16 +1,18 @@
 'use client';
 
+import React from 'react';
 import { useForm } from "react-hook-form";
 import { useCreateOrder } from "@/hooks/use-orders";
 import { useServiceTypes } from "@/hooks/use-services";
-import { useCondominiums } from "@/hooks/use-condominiums";
+import { useCurrentUser } from "@/hooks/use-users";
+import { FaInfoCircle } from 'react-icons/fa';
 
 export default function FormNuevaOrden({ dict, onSuccess }) {
-  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch, setValue } = useForm();
 
   // Queries
   const { data: serviceTypes, isLoading: loadingServiceTypes } = useServiceTypes();
-  const { data: condominiums, isLoading: loadingCondominiums } = useCondominiums();
+  const { data: currentUser, isLoading: loadingUser } = useCurrentUser();
 
   // Mutation
   const createOrderMutation = useCreateOrder();
@@ -19,12 +21,14 @@ export default function FormNuevaOrden({ dict, onSuccess }) {
     try {
       // Format data for API
       const orderData = {
-        service_type: parseInt(data.serviceType),
-        scheduled_date: `${data.scheduledDate}T${data.scheduledTime || '12:00'}:00Z`,
+        scheduled_date: data.isImmediate
+          ? new Date(Date.now() + 30 * 60000).toISOString() // 30 minutes from now
+          : `${data.scheduledDate}T${data.scheduledTime || '12:00'}:00Z`,
         is_immediate: data.isImmediate || false,
         delivery_notes: data.deliveryNotes || '',
-        amount: parseFloat(data.amount),
-        // Department will be handled by the receiver's profile
+        amount: parseFloat(data.amount) || parseFloat(serviceTypes?.find(t => t.id === parseInt(data.serviceType))?.price || 0),
+        // Note: service field is optional in the backend
+        // The backend will handle receiver assignment from the authenticated user
       };
 
       await createOrderMutation.mutateAsync(orderData);
@@ -42,8 +46,22 @@ export default function FormNuevaOrden({ dict, onSuccess }) {
     }
   };
 
-  // Check if immediate delivery checkbox is checked
+  // Watch form values
   const isImmediate = watch("isImmediate");
+  const selectedServiceType = watch("serviceType");
+
+  // Auto-fill amount when service type is selected
+  React.useEffect(() => {
+    if (selectedServiceType) {
+      const service = serviceTypes?.find(t => t.id === parseInt(selectedServiceType));
+      if (service) {
+        setValue('amount', service.price);
+      }
+    }
+  }, [selectedServiceType, serviceTypes, setValue]);
+
+  // Check if user has proper setup
+  const canCreateOrder = currentUser?.department && currentUser?.department?.condominium;
 
   return (
     <form
@@ -154,25 +172,24 @@ export default function FormNuevaOrden({ dict, onSuccess }) {
         />
       </div>
 
-      {/* Condominium Info (Read-only - from user profile) */}
-      <div className="grid">
-        <label htmlFor="condominium">{dict.TablesOrders.Form.Building}</label>
-        <select
-          className="rounded-lg border-gray-300 bg-gray-100 border-1 text-sm text-gray-600 mt-2"
-          id="condominium"
-          {...register("condominium")}
-          disabled={loadingCondominiums}
-        >
-          <option value="">Select condominium</option>
-          {condominiums?.map((condo) => (
-            <option key={condo.id} value={condo.id}>
-              {condo.name} - {condo.address}
-            </option>
-          ))}
-        </select>
-        <p className="text-xs text-gray-500 mt-1">
-          Note: Orders will be delivered to your registered department
-        </p>
+      {/* Delivery Location Info */}
+      <div className="grid p-3 bg-blue-50 rounded-lg">
+        <div className="flex items-start space-x-2">
+          <FaInfoCircle className="text-blue-600 mt-1" />
+          <div>
+            <p className="text-sm font-medium text-blue-900">Delivery Location</p>
+            {currentUser?.department ? (
+              <div className="text-sm text-blue-700 mt-1">
+                <p><strong>Building:</strong> {currentUser.department.condominium?.name}</p>
+                <p><strong>Department:</strong> Tower {currentUser.department.tower} - Floor {currentUser.department.floor} - {currentUser.department.name}</p>
+              </div>
+            ) : (
+              <p className="text-sm text-red-600 mt-1">
+                Please update your profile with your department information before creating orders.
+              </p>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Terms and Conditions */}
@@ -195,12 +212,18 @@ export default function FormNuevaOrden({ dict, onSuccess }) {
       {/* Submit Button */}
       <div>
         <button
-          className="bg-blue-600 p-3 rounded-lg text-white text-sm font-semibold disabled:bg-gray-400"
+          className="bg-blue-600 p-3 rounded-lg text-white text-sm font-semibold disabled:bg-gray-400 disabled:cursor-not-allowed"
           type="submit"
-          disabled={createOrderMutation.isLoading}
+          disabled={createOrderMutation.isLoading || !canCreateOrder || loadingUser}
+          title={!canCreateOrder ? "Please complete your profile first" : ""}
         >
           {createOrderMutation.isLoading ? 'Creating...' : dict.TablesOrders.Form.Button}
         </button>
+        {!canCreateOrder && !loadingUser && (
+          <p className="text-red-600 text-xs mt-2">
+            Please complete your profile with department information before creating orders.
+          </p>
+        )}
       </div>
     </form>
   );

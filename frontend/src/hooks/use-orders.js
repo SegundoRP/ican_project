@@ -167,3 +167,13 @@ export const useOrderStats = (params = {}) => {
     queryFn: () => ordersService.getOrderStats(params),
   });
 };
+
+// Hook for available orders (pending orders without assigned deliverer)
+export const useAvailableOrders = (params = {}) => {
+  return useQuery({
+    queryKey: [...orderKeys.list(params), 'available'],
+    queryFn: () => ordersService.getOrders({ ...params, status: 1 }),
+    staleTime: 30 * 1000, // 30 seconds - shorter for real-time updates
+    refetchInterval: 60 * 1000, // Refetch every minute
+  });
+};
