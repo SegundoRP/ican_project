@@ -65,9 +65,14 @@ export default function MenuDashboard({dictDashboard}) {
             {dictDashboard.Menu.Dropdown.Orders}
           </Dropdown.Item>
           {canDeliver && (
-            <Dropdown.Item icon={HiOutlineTruck} href="/dashboard/available-orders">
-              Available Orders
-            </Dropdown.Item>
+            <>
+              <Dropdown.Item icon={HiOutlineTruck} href="/dashboard/deliverer">
+                Deliverer Dashboard
+              </Dropdown.Item>
+              <Dropdown.Item icon={HiOutlineTruck} href="/dashboard/available-orders">
+                Available Orders
+              </Dropdown.Item>
+            </>
           )}
           <Dropdown.Item icon={HiOutlineUserGroup} href="/dashboard/repartidevs">
             {dictDashboard.Menu.Dropdown.Repartidevs}
