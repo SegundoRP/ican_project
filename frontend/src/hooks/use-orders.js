@@ -177,3 +177,19 @@ export const useAvailableOrders = (params = {}) => {
     refetchInterval: 60 * 1000, // Refetch every minute
   });
 };
+
+// Hook to get all orders (admin)
+export const useAllOrders = (params = {}) => {
+  return useQuery({
+    queryKey: orderKeys.list(params),
+    queryFn: () => ordersService.getOrders(params),
+  });
+};
+
+// Hook to get order statistics (admin)
+export const useOrdersStats = (params = {}) => {
+  return useQuery({
+    queryKey: orderKeys.stats(params),
+    queryFn: () => ordersService.getOrderStats(params),
+  });
+};
