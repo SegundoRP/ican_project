@@ -161,3 +161,24 @@ export const useSearchUsers = (query, enabled = true) => {
     enabled: enabled && !!query,
   });
 };
+
+// Hook to get all users (alias for admin dashboard)
+export const useAllUsers = (params = {}) => {
+  return useQuery({
+    queryKey: userKeys.list(params),
+    queryFn: () => usersService.getUsers(params),
+  });
+};
+
+// Hook to toggle user active status (admin)
+export const useToggleUserActive = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (userId) => usersService.toggleUserActive(userId),
+    onSuccess: (data, userId) => {
+      queryClient.invalidateQueries({ queryKey: userKeys.lists() });
+      queryClient.invalidateQueries({ queryKey: userKeys.detail(userId) });
+    },
+  });
+};
