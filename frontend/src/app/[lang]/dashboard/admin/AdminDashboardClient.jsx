@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import {
   FaUsers, FaBuilding, FaShoppingCart, FaMoneyBillWave,
   FaChartBar, FaTruck, FaClock, FaCheckCircle, FaTimesCircle,
-  FaArrowUp, FaBell, FaCog
+  FaArrowUp, FaBell
 } from 'react-icons/fa';
 import { formatCurrency, formatDate } from '@/utils/permissions';
 import { useAllOrders, useOrdersStats } from '@/hooks/use-orders';
@@ -41,6 +41,7 @@ ChartJS.register(
 export default function AdminDashboardClient({ dictionary }) {
   const router = useRouter();
   const [dateRange, setDateRange] = useState('week');
+  const [selectedMetric, setSelectedMetric] = useState('orders');
 
   const { data: orders, isLoading: ordersLoading } = useAllOrders();
   const { data: users, isLoading: usersLoading } = useAllUsers();
@@ -219,20 +220,13 @@ export default function AdminDashboardClient({ dictionary }) {
               <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
               <p className="text-gray-600 mt-2">System overview and management</p>
             </div>
-            <div className="flex items-center space-x-3">
+            <div>
               <button
                 onClick={() => router.push('/dashboard/admin/reports')}
-                className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center"
-              >
-                <FaChartBar className="mr-2" />
-                Reports
-              </button>
-              <button
-                onClick={() => router.push('/dashboard/admin/settings')}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
               >
-                <FaCog className="mr-2" />
-                Settings
+                <FaChartBar className="mr-2" />
+                View Reports
               </button>
             </div>
           </div>
@@ -382,9 +376,11 @@ export default function AdminDashboardClient({ dictionary }) {
               Orders & Revenue Trend
             </h2>
             {chartData && (
-              <Line
-                data={chartData.lineChart}
-                options={{
+              <div style={{ position: 'relative', height: '300px' }}>
+                <Line
+                  key={`line-chart-${dateRange}`}
+                  data={chartData.lineChart}
+                  options={{
                   responsive: true,
                   interaction: {
                     mode: 'index',
@@ -405,8 +401,10 @@ export default function AdminDashboardClient({ dictionary }) {
                       },
                     },
                   },
+                  maintainAspectRatio: false,
                 }}
-              />
+                />
+              </div>
             )}
           </div>
 
@@ -416,17 +414,21 @@ export default function AdminDashboardClient({ dictionary }) {
               Order Status Distribution
             </h2>
             {chartData && (
-              <Doughnut
-                data={chartData.doughnutChart}
-                options={{
-                  responsive: true,
-                  plugins: {
-                    legend: {
-                      position: 'bottom',
+              <div style={{ position: 'relative', height: '250px' }}>
+                <Doughnut
+                  key={`doughnut-chart-${dateRange}`}
+                  data={chartData.doughnutChart}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        position: 'bottom',
+                      }
                     }
-                  }
-                }}
-              />
+                  }}
+                />
+              </div>
             )}
           </div>
         </div>
