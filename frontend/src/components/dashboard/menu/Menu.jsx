@@ -8,16 +8,21 @@ import {
   HiOutlineShoppingCart,
   HiOutlineUserGroup,
   HiLogout,
+  HiOutlineTruck,
 } from "react-icons/hi";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { useLogoutMutation } from '@/redux/features/authApiSlice';
 import { useRouter } from 'next/navigation';
-import { useAppDispatch } from '@/redux/hooks'
+import { useAppDispatch } from '@/redux/hooks';
+import { useCurrentUser } from '@/hooks/use-users';
+import usePermissions from '@/hooks/use-permissions';
 
 export default function MenuDashboard({dictDashboard}) {
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
   const router = useRouter();
+  const { data: currentUser } = useCurrentUser();
+  const { canDeliver, displayName } = usePermissions();
   const handleLogout = async () => {
     try {
       await logout().unwrap();
@@ -48,9 +53,9 @@ export default function MenuDashboard({dictDashboard}) {
           }
         >
           <Dropdown.Header>
-            <span className="block text-sm font-bold">Segundo Rebaza</span>
+            <span className="block text-sm font-bold">{displayName}</span>
             <span className="block truncate text-sm font-medium">
-              segundorp@gmail.com
+              {currentUser?.email || 'Loading...'}
             </span>
           </Dropdown.Header>
           <Dropdown.Item icon={HiOutlineChartBar} href="/dashboard">
@@ -59,8 +64,21 @@ export default function MenuDashboard({dictDashboard}) {
           <Dropdown.Item icon={HiOutlineShoppingCart} href="/dashboard/ordenes">
             {dictDashboard.Menu.Dropdown.Orders}
           </Dropdown.Item>
+          {canDeliver && (
+            <>
+              <Dropdown.Item icon={HiOutlineTruck} href="/dashboard/deliverer">
+                Deliverer Dashboard
+              </Dropdown.Item>
+              <Dropdown.Item icon={HiOutlineTruck} href="/dashboard/available-orders">
+                Available Orders
+              </Dropdown.Item>
+            </>
+          )}
           <Dropdown.Item icon={HiOutlineUserGroup} href="/dashboard/repartidevs">
             {dictDashboard.Menu.Dropdown.Repartidevs}
+          </Dropdown.Item>
+          <Dropdown.Item icon={HiOutlineUser} href="/dashboard/profile">
+            My Profile
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item icon={HiLogout} className="text-red-500" onClick={handleLogout}>

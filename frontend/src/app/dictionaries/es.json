@@ -255,6 +255,48 @@
           "Indicator":10
         }
       }
+    },
+
+    "ProfilePage": {
+      "Title": "Mi Perfil",
+      "EditButton": "Editar Perfil",
+      "SaveButton": "Guardar Cambios",
+      "CancelButton": "Cancelar",
+      "PersonalInfo": {
+        "Title": "Información Personal",
+        "Name": "Nombre",
+        "Email": "Correo Electrónico",
+        "Phone": "Teléfono",
+        "Role": "Rol",
+        "Condominium": "Condominio",
+        "Department": "Departamento",
+        "Status": "Estado de la Cuenta",
+        "Verified": "Verificado",
+        "Pending": "Pendiente"
+      },
+      "Stats": {
+        "Title": "Estadísticas",
+        "ReceiverStats": "Estadísticas como Receptor",
+        "DelivererStats": "Estadísticas como Repartidev",
+        "TotalOrders": "Total de Órdenes",
+        "PendingOrders": "Órdenes Pendientes",
+        "CompletedOrders": "Órdenes Completadas",
+        "TotalDeliveries": "Total de Entregas",
+        "TotalEarnings": "Ganancias Totales",
+        "Rating": "Calificación",
+        "Reviews": "reseñas",
+        "NoReviews": "Sin reseñas"
+      },
+      "Actions": {
+        "NewOrder": "Nueva Orden",
+        "ViewOrders": "Ver Mis Órdenes",
+        "ToggleAvailability": "Cambiar Disponibilidad",
+        "ViewDeliveries": "Ver Mis Entregas"
+      },
+      "Availability": {
+        "Available": "Disponible para entregas",
+        "NotAvailable": "No disponible"
+      }
     }
   },
 
