@@ -222,16 +222,30 @@ export default function EarningsPageClient({ dictionary }) {
           {/* Daily Earnings Chart */}
           <div className="bg-white rounded-lg shadow p-6">
             <h3 className="text-lg font-semibold mb-4">Daily Earnings Trend</h3>
-            <div className="h-64">
-              <Line data={lineChartData} options={chartOptions} />
+            <div style={{ position: 'relative', height: '256px' }}>
+              <Line
+                key={`earnings-line-${dateRange}`}
+                data={lineChartData}
+                options={{
+                  ...chartOptions,
+                  maintainAspectRatio: false
+                }}
+              />
             </div>
           </div>
 
           {/* Hourly Distribution */}
           <div className="bg-white rounded-lg shadow p-6">
             <h3 className="text-lg font-semibold mb-4">Earnings by Hour</h3>
-            <div className="h-64">
-              <Bar data={barChartData} options={chartOptions} />
+            <div style={{ position: 'relative', height: '256px' }}>
+              <Bar
+                key={`earnings-bar-${dateRange}`}
+                data={barChartData}
+                options={{
+                  ...chartOptions,
+                  maintainAspectRatio: false
+                }}
+              />
             </div>
           </div>
         </div>
